@@ -6,16 +6,64 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1300</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1300</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="geometry">
+     <rect>
+      <x>1468</x>
+      <y>107</y>
+      <width>150</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionRestaurants"/>
+    <addaction name="actionASDK"/>
+    <addaction name="actionHJKLKJ"/>
+    <addaction name="separator"/>
+    <addaction name="actionCheckout"/>
+   </widget>
+   <addaction name="menuMenu"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionRestaurants">
+   <property name="text">
+    <string>Restaurants</string>
+   </property>
+  </action>
+  <action name="actionASDK">
+   <property name="text">
+    <string>ASDK</string>
+   </property>
+  </action>
+  <action name="actionHJKLKJ">
+   <property name="text">
+    <string>HJKLKJ</string>
+   </property>
+  </action>
+  <action name="actionCheckout">
+   <property name="text">
+    <string>Checkout</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
