@@ -17,5 +17,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void DatabaseConnect();
+    void DatabaseInit();
+    void DatabasePopulate();
+
+    std::string fileName;
 };
 #endif // MAINWINDOW_H
