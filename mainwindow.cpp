@@ -1,10 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <QSqlDatabase>
-#include <QSqlDriver>
-#include <QSqlError>
-#include <QSqlQuery>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -12,7 +5,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     DatabaseConnect();
     DatabaseInit();
-    fileName = "fastfood.txt";
+    fileName = "../SaddlebackEats/fastfood.txt";
     DatabasePopulate();
 }
 
@@ -25,13 +18,10 @@ void MainWindow::DatabaseConnect() {
 
     if(QSqlDatabase::isDriverAvailable(DRIVER)) {
         QSqlDatabase db = QSqlDatabase::addDatabase(DRIVER);
-
         db.setDatabaseName(":memory:");
 
-        if(!db.open())
-            qWarning() << "MainWindow::DatabaseConnect - ERROR: " << db.lastError().text();
-    } else
-        qWarning() << "MainWindow::DatabaseConnect - ERROR: no driver " << DRIVER << " available";
+        if(!db.open()) qWarning() << "MainWindow::DatabaseConnect - ERROR: " << db.lastError().text();
+    } else qWarning() << "MainWindow::DatabaseConnect - ERROR: no driver " << DRIVER << " available";
 }
 
 void MainWindow::DatabaseInit() {
@@ -48,10 +38,10 @@ void MainWindow::DatabasePopulate() {
     std::string s;
     std::string restName;
     std::string restNum;
-    std::string distance[11];
-    int menuSize;
+    std::string d[11];
     std::string menuItem[10];
     std::string menuPrice[10];
+    int menuSize;
 
     std::ifstream infile;
     infile.open(fileName);
@@ -60,11 +50,11 @@ void MainWindow::DatabasePopulate() {
     while (getline(infile, restName) && getline(infile, restNum) && getline(infile, s)) {
         restName.erase(0, 30);
         restNum.erase(0, 28);
+
         for(int i = 1; i < 11; ++i) {
             getline(infile, s, ' ');
-            getline(infile, distance[i]);
-        }
-        getline(infile, distance[0], ' ');
+            getline(infile, d[i]);
+        } getline(infile, d[0], ' ');
         getline(infile, s);
         getline(infile, s, ' ');
         menuSize = std::stoi(s);
@@ -75,24 +65,26 @@ void MainWindow::DatabasePopulate() {
             getline(infile, menuPrice[i]);
         } getline(infile, s);
 
-        s = "INSERT INTO restaurant (restName, restNum, d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, menuSize) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + distance[0] + "\", \"" + distance[1] + "\", \"" + distance[2] + "\", \"" + distance[3] + "\", \"" + distance[4] + "\", \"" + distance[5] + "\", \"" + distance[6] + "\", \"" + distance[7] + "\", \"" + distance[8] + "\", \"" + distance[9] + "\", \"" + distance[10] + "\", \"" + std::to_string(menuSize) + "\");";
+        s = "INSERT INTO restaurant (restName, restNum, d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, menuSize) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + d[0] + "\", \"" + d[1] + "\", \"" + d[2] + "\", \"" + d[3] + "\", \"" + d[4] + "\", \"" + d[5] + "\", \"" + d[6] + "\", \"" + d[7] + "\", \"" + d[8] + "\", \"" + d[9] + "\", \"" + d[10] + "\", \"" + std::to_string(menuSize) + "\");";
         q = QString::fromStdString(s);
-
         if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
+
+// FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
+//        q = "SELECT * FROM restaurant WHERE restName =\"" + QString::fromStdString(restName) + "\"";
+//        query.exec(q);
+//        query.next();
+//        std::cout << query.value(1).toString().toStdString() << " " << query.value(2).toString().toStdString() << " " << query.value(3).toString().toStdString() << " " << query.value(4).toString().toStdString() << " " << query.value(5).toString().toStdString() << " " << query.value(6).toString().toStdString() << " " << query.value(7).toString().toStdString() << " " << query.value(8).toString().toStdString() << " " << query.value(9).toString().toStdString() << " " << query.value(10).toString().toStdString() << " " << query.value(11).toString().toStdString() << " " << query.value(12).toString().toStdString() << " " << query.value(13).toString().toStdString() << " " << query.value(14).toString().toStdString() << std::endl;
 
         for (int i = 0; i < menuSize; ++i) {
             s = "INSERT INTO menu (restName, restNum, menuItem, menuPrice) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + menuItem[i] + "\", \"" + menuPrice[i] + "\");";
             q = QString::fromStdString(s);
-
             if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
+
+// FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
+//            q = "SELECT * FROM menu WHERE menuItem =\"" + QString::fromStdString(menuItem[i]) + "\" AND restNum =\"" + QString::fromStdString(restNum)+ "\"";
+//            query.exec(q);
+//            query.next();
+//            std::cout << query.value(1).toString().toStdString() << " " << query.value(2).toString().toStdString() << " " << query.value(3).toString().toStdString() << " " << query.value(4).toString().toStdString() << std::endl;
         }
-
-        q = "SELECT * FROM restaurant WHERE restName =\"" + QString::fromStdString(restName) + "\"";
-        query.exec(q);
-        query.next();
-        std::cout << restName << " " << restNum << " " << distance[7] << " " << menuSize << " " << menuItem[2] << " " << menuPrice[2] << std::endl;
-        //std::cout << query.value(1).toStdString();
-
     } infile.close();
-
 }
