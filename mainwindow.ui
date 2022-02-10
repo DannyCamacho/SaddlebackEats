@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Saddleback Eats</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../Desktop/mountain.png</normaloff>../../../Desktop/mountain.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
@@ -26,10 +30,10 @@
    <widget class="QMenu" name="menuMenu">
     <property name="geometry">
      <rect>
-      <x>1468</x>
+      <x>1545</x>
       <y>107</y>
-      <width>150</width>
-      <height>160</height>
+      <width>136</width>
+      <height>140</height>
      </rect>
     </property>
     <property name="title">
