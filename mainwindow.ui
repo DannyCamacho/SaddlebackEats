@@ -10,6 +10,12 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Bahnschrift</family>
+    <pointsize>14</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Saddleback Eats</string>
   </property>
@@ -17,31 +23,61 @@
    <iconset>
     <normaloff>../../../Desktop/mountain.png</normaloff>../../../Desktop/mountain.png</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="iconSize">
+   <size>
+    <width>24</width>
+    <height>24</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>1300</width>
-     <height>20</height>
+     <height>28</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">selection-background-color: rgb(170, 0, 0);
+background-color: rgb(255, 255, 255);</string>
    </property>
    <widget class="QMenu" name="menuMenu">
     <property name="geometry">
      <rect>
-      <x>1545</x>
+      <x>1636</x>
       <y>107</y>
-      <width>136</width>
-      <height>140</height>
+      <width>168</width>
+      <height>126</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="title">
      <string>Menu</string>
     </property>
     <addaction name="actionRestaurants"/>
-    <addaction name="actionASDK"/>
-    <addaction name="actionHJKLKJ"/>
     <addaction name="separator"/>
     <addaction name="actionCheckout"/>
    </widget>
@@ -52,20 +88,22 @@
    <property name="text">
     <string>Restaurants</string>
    </property>
-  </action>
-  <action name="actionASDK">
-   <property name="text">
-    <string>ASDK</string>
-   </property>
-  </action>
-  <action name="actionHJKLKJ">
-   <property name="text">
-    <string>HJKLKJ</string>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionCheckout">
    <property name="text">
     <string>Checkout</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
    </property>
   </action>
  </widget>
