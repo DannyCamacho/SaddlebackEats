@@ -7,6 +7,7 @@
 #include<vector>
 using namespace std;
 /*\*/
+//Note that this doxygen may be incorrect as I am inexperienced with it
 /*\struct menuItem struct */
 
 struct menuItem
@@ -23,12 +24,12 @@ class restaurant
             restaurant();
             ~restaurant();
     private:
-            string restaurantName;     /*\var restaurantName string variable */
-            int restaurantNumber;      /*\var restaurantNumber int variable*/
-            vector<float> distanceR;   /*\var distanceR float vector variable*/
-            float distanceSB;          /*\var distanceSB float variable*/
-            int menuCount;             /*\var menuCount int variable*/
-            vector<menuItem> menuList; /*\var menuList menuItem vector variable*/
+            string restaurantName;      /*\var restaurantName string variable */
+            int restaurantNumber;       /*\var restaurantNumber int variable*/
+            vector<float> distanceList; /*\var distanceList float vector variable*/
+            //Note that Saddleback's distance is index 0
+            int menuCount;              /*\var menuCount int variable*/
+            vector<menuItem> menuList;  /*\var menuList menuItem vector variable*/
 
 };
 
