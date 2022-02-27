@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/rec">
+        <file>resources/resturantImage1.png</file>
+        <file>resources/plusSign.png</file>
+        <file>resources/removeSign.png</file>
+    </qresource>
+</RCC>
