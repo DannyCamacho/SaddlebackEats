@@ -2,6 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "restaurant.h"
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QSqlQuery>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +24,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void printDistance();
+
 private:
     Ui::MainWindow *ui;
+
+    void DatabaseConnect();
+    void DatabaseInit();
+    void DatabasePopulate();
+
+    std::string fileName;
 };
 #endif // MAINWINDOW_H
