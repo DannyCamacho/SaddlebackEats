@@ -8,7 +8,7 @@ debugMenu::debugMenu(QWidget *parent) :
     ui->setupUi(this);
 
     // sets all header text to read only
-    ui->listTitleText->setReadOnly(true);
+    //ui->listTitleText->setReadOnly(true);
 
     // assigns QPix image to green plus sign
     QPixmap addPix(":/rec/resources/plusSign.png");
