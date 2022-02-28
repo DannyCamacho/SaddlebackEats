@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QTextEdit>
 #include "mainwindow.h"
+#include<QDebug>
+
 
 
 namespace Ui {
@@ -35,6 +37,7 @@ private:
 
     int mnSelected = -1;
     QIcon resturantImage = QIcon(":/rec/resources/resturantImage1.png");
+    bool isSorted = false;
 };
 
 #endif // DEBUGMENU_H
