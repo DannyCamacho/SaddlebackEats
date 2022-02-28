@@ -13,12 +13,12 @@ debugMenu::debugMenu(QWidget *parent) :
     // assigns QPix image to green plus sign
     QPixmap addPix(":/rec/resources/plusSign.png");
     addPix = addPix.scaled(30, 30);
-    ui->addLabel->setPixmap(addPix);
+    //ui->addLabel->setPixmap(addPix);
 
      // assigns QPix image to red x sign
     QPixmap removePix(":/rec/resources/removeSign.png");
     removePix = removePix.scaled(40, 40);
-    ui->removeLabel->setPixmap(removePix);
+   //ui->removeLabel->setPixmap(removePix);
 
     // prints out initial list
     printDistance(0, ui->resturantList);
