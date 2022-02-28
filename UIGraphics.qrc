@@ -3,5 +3,9 @@
         <file>resources/resturantImage1.png</file>
         <file>resources/plusSign.png</file>
         <file>resources/removeSign.png</file>
+        <file>resources/SE_logo.png</file>
+        <file>resources/SE_1-removebg.png</file>
+        <file>resources/menu_icon-removebg.png</file>
+        <file>resources/addToCart-removebg-.png</file>
     </qresource>
 </RCC>

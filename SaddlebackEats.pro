@@ -37,6 +37,10 @@ DISTFILES += \
     .gitignore \
     README.md \
     fastfood.txt \
+    resources/SE_1-removebg.png \
+    resources/SE_logo.png \
+    resources/addToCart-removebg-.png \
+    resources/menu_icon-removebg.png \
     resources/plusSign.png \
     resources/removeSign.png \
     resources/resturantImage1.png

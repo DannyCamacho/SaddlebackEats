@@ -10,7 +10,7 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QListWidget>
-
+#include <QSqlQueryModel>
 #include <sstream>
 using namespace std;
 
@@ -54,12 +54,19 @@ public:
     }
 
 
+private slots:
+    void on_checkBox_stateChanged(int arg1);
+
+    void on_rest_tableView_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     void DatabaseConnect();
     void DatabaseInit();
     void DatabasePopulate();
-
+    void restTableViewUpdate(int arg1);
+    QSqlQueryModel* restModel;
+    QSqlQueryModel* menuModel;
     std::string fileName;
 };
 #endif // MAINWINDOW_H
