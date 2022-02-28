@@ -28,12 +28,13 @@ private slots:
 
     void on_addToList_clicked();
 
+    void on_sortByDistToggle_toggled(bool checked);
+
 private:
     Ui::debugMenu *ui;
 
     int mnSelected = -1;
     QIcon resturantImage = QIcon(":/rec/resources/resturantImage1.png");
-
 };
 
 #endif // DEBUGMENU_H

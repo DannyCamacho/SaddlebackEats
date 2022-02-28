@@ -20,21 +20,8 @@ debugMenu::debugMenu(QWidget *parent) :
     removePix = removePix.scaled(40, 40);
     ui->removeLabel->setPixmap(removePix);
 
-    // adds test obj to list
-    // This list needs to be connected to the SQL database
-//    QListWidgetItem* item1 = new QListWidgetItem(resturantImage, "Test Item 1");
-//    ui->resturantList->addItem(item1);
 
-//    QListWidgetItem* item2 = new QListWidgetItem(resturantImage, "Test Item 2");
-//    ui->resturantList->addItem(item2);
-
-//    QListWidgetItem* item3 = new QListWidgetItem(resturantImage, "Test Item 3");
-//    ui->resturantList->addItem(item3);
-
-//    QListWidgetItem* item4 = new QListWidgetItem(resturantImage, "Test Item 4");
-//    ui->resturantList->addItem(item4);
-
-    printDistance(ui->resturantList);
+    printDistance(0, ui->resturantList);
 };
 
 
@@ -68,5 +55,13 @@ void debugMenu::on_addToList_clicked()
 
     QListWidgetItem* newItem = new QListWidgetItem(resturantImage, inputName);
     ui->resturantList->addItem(newItem);
+}
+
+
+void debugMenu::on_sortByDistToggle_toggled(bool checked)
+{
+    ui->resturantList->clear();
+    printDistance(checked, ui->resturantList);
+
 }
 

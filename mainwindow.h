@@ -27,7 +27,7 @@ public:
     ~MainWindow();
 
     // Brandon Display function
-    void printDistance(QListWidget* list)
+    void printDistance(bool sortByDist, QListWidget* list)
     {
         ostringstream fullList;
         QSqlQuery query;
@@ -38,14 +38,18 @@ public:
 
 //        this->ui->restaurantLabel->setText("Saddleback Distances");
 
-        q = "SELECT restName, d0 FROM restaurant ORDER BY restName;";
+        if(sortByDist)
+            q = "SELECT restName, d0 FROM restaurant ORDER BY d0;";
+        else
+            q = "SELECT restName, d0 FROM restaurant ORDER BY restName;";
+
         query.exec(q);
         while(query.next())
         {
 
 //            fullList << query.value(0).toString().toStdString() << " - " << query.value(1).toString().toStdString() << " Miles" << endl;
             listLine = string(query.value(0).toString().toStdString() + " - " + query.value(1).toString().toStdString() + " Miles");
-            QListWidgetItem* newItem = new QListWidgetItem(QIcon(":/rec/resources/resturantImage1.png"), QString::fromStdString(listLine));
+            QListWidgetItem* newItem = new QListWidgetItem(resturantImage, QString::fromStdString(listLine));
             list->addItem(newItem);
 
         }
@@ -61,5 +65,6 @@ private:
     void DatabasePopulate();
 
     std::string fileName;
+    QIcon resturantImage = QIcon(":/rec/resources/resturantImage1.png");
 };
 #endif // MAINWINDOW_H
