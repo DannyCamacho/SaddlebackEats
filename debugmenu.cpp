@@ -2,7 +2,7 @@
 #include "ui_debugmenu.h"
 
 debugMenu::debugMenu(QWidget *parent) :
-    QMainWindow(parent),
+    MainWindow(parent),
     ui(new Ui::debugMenu)
 {
     ui->setupUi(this);
@@ -22,18 +22,20 @@ debugMenu::debugMenu(QWidget *parent) :
 
     // adds test obj to list
     // This list needs to be connected to the SQL database
-    QListWidgetItem* item1 = new QListWidgetItem(resturantImage, "Test Item 1");
-    ui->resturantList->addItem(item1);
+//    QListWidgetItem* item1 = new QListWidgetItem(resturantImage, "Test Item 1");
+//    ui->resturantList->addItem(item1);
 
-    QListWidgetItem* item2 = new QListWidgetItem(resturantImage, "Test Item 2");
-    ui->resturantList->addItem(item2);
+//    QListWidgetItem* item2 = new QListWidgetItem(resturantImage, "Test Item 2");
+//    ui->resturantList->addItem(item2);
 
-    QListWidgetItem* item3 = new QListWidgetItem(resturantImage, "Test Item 3");
-    ui->resturantList->addItem(item3);
+//    QListWidgetItem* item3 = new QListWidgetItem(resturantImage, "Test Item 3");
+//    ui->resturantList->addItem(item3);
 
-    QListWidgetItem* item4 = new QListWidgetItem(resturantImage, "Test Item 4");
-    ui->resturantList->addItem(item4);
-}
+//    QListWidgetItem* item4 = new QListWidgetItem(resturantImage, "Test Item 4");
+//    ui->resturantList->addItem(item4);
+
+    printDistance(ui->resturantList);
+};
 
 
 debugMenu::~debugMenu()

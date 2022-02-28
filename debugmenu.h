@@ -3,12 +3,14 @@
 
 #include <QMainWindow>
 #include <QTextEdit>
+#include "mainwindow.h"
+
 
 namespace Ui {
 class debugMenu;
 }
 
-class debugMenu : public QMainWindow
+class debugMenu : public MainWindow
 {
     Q_OBJECT
 
