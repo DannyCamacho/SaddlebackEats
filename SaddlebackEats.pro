@@ -39,6 +39,7 @@ DISTFILES += \
     fastfood.txt \
     resources/SE_1-removebg.png \
     resources/SE_logo.png \
+    resources/SE_logo_mini.png \
     resources/addToCart-removebg-.png \
     resources/menu_icon-removebg.png \
     resources/plusSign.png \

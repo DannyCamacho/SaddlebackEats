@@ -68,11 +68,11 @@
       </brush>
      </colorrole>
      <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
-        <red>208</red>
-        <green>208</green>
-        <blue>208</blue>
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
        </color>
       </brush>
      </colorrole>
@@ -133,8 +133,8 @@
       </brush>
      </colorrole>
      <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
         <red>0</red>
         <green>0</green>
         <blue>0</blue>
@@ -198,11 +198,11 @@
       </brush>
      </colorrole>
      <colorrole role="PlaceholderText">
-      <brush brushstyle="NoBrush">
-       <color alpha="128">
-        <red>208</red>
-        <green>208</green>
-        <blue>208</blue>
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
        </color>
       </brush>
      </colorrole>
@@ -211,16 +211,15 @@
   </property>
   <property name="font">
    <font>
-    <family>Bahnschrift</family>
     <pointsize>14</pointsize>
    </font>
   </property>
   <property name="windowTitle">
-   <string>Main Window</string>
+   <string>Saddleback Eats</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../Desktop/mountain.png</normaloff>../../../Desktop/mountain.png</iconset>
+   <iconset resource="UIGraphics.qrc">
+    <normaloff>:/rec/resources/SE_logo_mini.png</normaloff>:/rec/resources/SE_logo_mini.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);
@@ -324,11 +323,11 @@ color: rgb(0, 0, 0);</string>
         </brush>
        </colorrole>
        <colorrole role="PlaceholderText">
-        <brush brushstyle="NoBrush">
-         <color alpha="128">
-          <red>208</red>
-          <green>208</green>
-          <blue>208</blue>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -407,8 +406,8 @@ color: rgb(0, 0, 0);</string>
         </brush>
        </colorrole>
        <colorrole role="PlaceholderText">
-        <brush brushstyle="NoBrush">
-         <color alpha="128">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
           <red>0</red>
           <green>0</green>
           <blue>0</blue>
@@ -490,11 +489,11 @@ color: rgb(0, 0, 0);</string>
         </brush>
        </colorrole>
        <colorrole role="PlaceholderText">
-        <brush brushstyle="NoBrush">
-         <color alpha="128">
-          <red>208</red>
-          <green>208</green>
-          <blue>208</blue>
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -503,7 +502,6 @@ color: rgb(0, 0, 0);</string>
     </property>
     <property name="font">
      <font>
-      <family>Bahnschrift</family>
       <pointsize>11</pointsize>
      </font>
     </property>
@@ -550,7 +548,6 @@ selection-color: rgb(159, 11, 25);
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -621,7 +618,6 @@ selection-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -719,7 +715,6 @@ selection-color: rgb(0, 0, 0);
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -745,7 +740,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -794,7 +788,6 @@ color: rgb(0, 0, 0);</string>
        <widget class="QPushButton" name="pushButton">
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>10</pointsize>
          </font>
         </property>
@@ -821,7 +814,6 @@ color: rgb(0, 0, 0);
        <widget class="QPushButton" name="pushButton_2">
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>10</pointsize>
          </font>
         </property>
@@ -847,7 +839,6 @@ color: rgb(0, 0, 0);</string>
        <widget class="QPushButton" name="pushButton_3">
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>10</pointsize>
          </font>
         </property>
@@ -882,7 +873,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -928,7 +918,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -1006,12 +995,11 @@ color: rgb(0, 0, 0);
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>28</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -1033,13 +1021,12 @@ background-color: rgb(255, 255, 255);</string>
      <rect>
       <x>1769</x>
       <y>115</y>
-      <width>168</width>
-      <height>157</height>
+      <width>117</width>
+      <height>112</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Bahnschrift</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -1067,7 +1054,6 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
      <underline>false</underline>
     </font>
@@ -1079,7 +1065,6 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Administrative Debug Menu</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="UIGraphics.qrc">
+    <normaloff>:/rec/resources/SE_logo_mini.png</normaloff>:/rec/resources/SE_logo_mini.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
@@ -45,7 +49,6 @@ color: rgb(0, 0, 0);</string>
     </property>
     <property name="font">
      <font>
-      <family>Bahnschrift</family>
       <pointsize>16</pointsize>
      </font>
     </property>
@@ -117,7 +120,6 @@ selection-color: rgb(0, 0, 0);
       </property>
       <property name="font">
        <font>
-        <family>Bahnschrift</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -211,9 +213,7 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -243,9 +243,7 @@ color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -292,7 +290,6 @@ color: rgb(0, 0, 0);
       </property>
       <property name="font">
        <font>
-        <family>Bahnschrift</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -313,7 +310,6 @@ color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>12</pointsize>
         </font>
        </property>
@@ -343,7 +339,6 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>11</pointsize>
         </font>
        </property>
@@ -370,7 +365,6 @@ selection-color: rgb(0, 0, 0);
       </property>
       <property name="font">
        <font>
-        <family>Bahnschrift</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -391,7 +385,6 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>12</pointsize>
         </font>
        </property>
@@ -421,7 +414,6 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>11</pointsize>
         </font>
        </property>
@@ -450,7 +442,6 @@ selection-color: rgb(0, 0, 0);
     </property>
     <property name="font">
      <font>
-      <family>Bahnschrift</family>
       <pointsize>11</pointsize>
      </font>
     </property>
@@ -485,7 +476,6 @@ selection-color: rgb(0, 0, 0);
     </property>
     <property name="font">
      <font>
-      <family>Bahnschrift</family>
       <pointsize>16</pointsize>
      </font>
     </property>
@@ -511,7 +501,7 @@ selection-color: rgb(0, 0, 0);
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>20</height>
+     <height>17</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDebug_Meni">
@@ -547,6 +537,8 @@ selection-color: rgb(0, 0, 0);
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="UIGraphics.qrc"/>
+ </resources>
  <connections/>
 </ui>

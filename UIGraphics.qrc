@@ -7,5 +7,6 @@
         <file>resources/SE_1-removebg.png</file>
         <file>resources/menu_icon-removebg.png</file>
         <file>resources/addToCart-removebg-.png</file>
+        <file>resources/SE_logo_mini.png</file>
     </qresource>
 </RCC>
