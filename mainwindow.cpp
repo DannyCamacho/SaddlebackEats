@@ -105,7 +105,6 @@ void MainWindow::on_checkBox_stateChanged(int arg1) {
     restTableViewUpdate(arg1);
 }
 
-
 void MainWindow::on_rest_tableView_clicked(const QModelIndex &index) {
     QString restName = index.siblingAtColumn(0).data().toString();
     menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
@@ -180,4 +179,35 @@ void MainWindow::DatabaseImport() {
 //    query.exec(q);
 //    while (query.next())
 //        std::cout << query.value(1).toString().toStdString() << " " << query.value(2).toString().toStdString() << " " << query.value(3).toString().toStdString() << " " << query.value(4).toString().toStdString() << " " << query.value(5).toString().toStdString() << " " << query.value(6).toString().toStdString() << " " << query.value(7).toString().toStdString() << " " << query.value(8).toString().toStdString() << " " << query.value(9).toString().toStdString() << " " << query.value(10).toString().toStdString() << " " << query.value(11).toString().toStdString() << " " << query.value(12).toString().toStdString() << " " << query.value(13).toString().toStdString() << " " << query.value(14).toString().toStdString() << " " << query.value(15).toString().toStdString() << std::endl;
+}
+
+// Brandon Display function
+void MainWindow::printDistance(bool sortByDist, QListWidget* list)
+{
+    ostringstream fullList;
+    QSqlQuery query;
+    QString q;
+    string s;
+    string restName;
+    string listLine;
+
+//        this->ui->restaurantLabel->setText("Saddleback Distances");
+
+    if(sortByDist)
+        q = "SELECT restName, d0 FROM restaurant ORDER BY d0;";
+    else
+        q = "SELECT restName, d0 FROM restaurant ORDER BY restName;";
+
+    query.exec(q);
+    while(query.next())
+    {
+
+//            fullList << query.value(0).toString().toStdString() << " - " << query.value(1).toString().toStdString() << " Miles" << endl;
+        listLine = string(query.value(0).toString().toStdString() + " - " + query.value(1).toString().toStdString() + " Miles");
+        QListWidgetItem* newItem = new QListWidgetItem(restaurantImage, QString::fromStdString(listLine));
+        list->addItem(newItem);
+
+    }
+
+//        this->ui->dListLabel->setText(QString::fromUtf8(fullList.str()));
 }

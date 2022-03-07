@@ -36,7 +36,7 @@ private:
     Ui::debugMenu *ui;
 
     int mnSelected = -1;
-    QIcon resturantImage = QIcon(":/rec/resources/resturantImage1.png");
+    QIcon restaurantImage = QIcon(":/rec/resources/resturantImage1.png");
     bool isSorted = false;
 };
 
