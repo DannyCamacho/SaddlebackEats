@@ -36,7 +36,7 @@ public:
         string restName;
         string listLine;
 
-//        this->ui->restaurantLabel->setText("Saddleback Distances");
+    //        this->ui->restaurantLabel->setText("Saddleback Distances");
 
         if(sortByDist)
             q = "SELECT restName, d0 FROM restaurant ORDER BY d0;";
@@ -47,16 +47,15 @@ public:
         while(query.next())
         {
 
-//            fullList << query.value(0).toString().toStdString() << " - " << query.value(1).toString().toStdString() << " Miles" << endl;
+    //            fullList << query.value(0).toString().toStdString() << " - " << query.value(1).toString().toStdString() << " Miles" << endl;
             listLine = string(query.value(0).toString().toStdString() + " - " + query.value(1).toString().toStdString() + " Miles");
             QListWidgetItem* newItem = new QListWidgetItem(resturantImage, QString::fromStdString(listLine));
             list->addItem(newItem);
 
         }
 
-//        this->ui->dListLabel->setText(QString::fromUtf8(fullList.str()));
+    //        this->ui->dListLabel->setText(QString::fromUtf8(fullList.str()));
     }
-
 
 private slots:
     void on_checkBox_stateChanged(int arg1);
@@ -68,6 +67,7 @@ private:
     void DatabaseConnect();
     void DatabaseInit();
     void DatabasePopulate();
+    void DatabaseImport();
     void restTableViewUpdate(int arg1);
     QSqlQueryModel* restModel;
     QSqlQueryModel* menuModel;

@@ -995,7 +995,7 @@ color: rgb(0, 0, 0);
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -1019,10 +1019,10 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QMenu" name="menuMenu">
     <property name="geometry">
      <rect>
-      <x>1769</x>
-      <y>115</y>
-      <width>117</width>
-      <height>112</height>
+      <x>635</x>
+      <y>193</y>
+      <width>182</width>
+      <height>167</height>
      </rect>
     </property>
     <property name="font">
@@ -1072,6 +1072,11 @@ background-color: rgb(255, 255, 255);</string>
   <action name="actionLogin">
    <property name="text">
     <string>Login</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import...</string>
    </property>
   </action>
  </widget>
