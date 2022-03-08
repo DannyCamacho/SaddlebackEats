@@ -49,6 +49,7 @@ color: rgb(0, 0, 0);</string>
     </property>
     <property name="font">
      <font>
+      <family>Bahnschrift</family>
       <pointsize>16</pointsize>
      </font>
     </property>
@@ -120,6 +121,7 @@ selection-color: rgb(0, 0, 0);
       </property>
       <property name="font">
        <font>
+        <family>Bahnschrift</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -156,6 +158,11 @@ selection-color: rgb(0, 0, 0);
        <width>251</width>
        <height>351</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
@@ -213,6 +220,7 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
+         <family>Bahnschrift</family>
          <pointsize>10</pointsize>
          <bold>false</bold>
         </font>
@@ -243,6 +251,7 @@ color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
+         <family>Bahnschrift</family>
          <pointsize>10</pointsize>
          <bold>false</bold>
         </font>
@@ -310,6 +319,7 @@ color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
+         <family>Bahnschrift</family>
          <pointsize>12</pointsize>
         </font>
        </property>
@@ -339,6 +349,7 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
+         <family>Bahnschrift</family>
          <pointsize>11</pointsize>
         </font>
        </property>
@@ -385,6 +396,7 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
+         <family>Bahnschrift</family>
          <pointsize>12</pointsize>
         </font>
        </property>
@@ -414,6 +426,7 @@ selection-color: rgb(0, 0, 0);
        </property>
        <property name="font">
         <font>
+         <family>Bahnschrift</family>
          <pointsize>11</pointsize>
         </font>
        </property>
@@ -442,6 +455,7 @@ selection-color: rgb(0, 0, 0);
     </property>
     <property name="font">
      <font>
+      <family>Bahnschrift</family>
       <pointsize>11</pointsize>
      </font>
     </property>
@@ -476,6 +490,7 @@ selection-color: rgb(0, 0, 0);
     </property>
     <property name="font">
      <font>
+      <family>Bahnschrift</family>
       <pointsize>16</pointsize>
      </font>
     </property>
@@ -501,41 +516,79 @@ selection-color: rgb(0, 0, 0);
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>17</height>
+     <height>28</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuDebug_Meni">
-    <property name="title">
-     <string>About</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuLogout">
-    <property name="title">
-     <string>Logout</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuSave_List">
-    <property name="title">
-     <string>Save</string>
-    </property>
-   </widget>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">selection-background-color: rgb(170, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+   </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuSave_as">
-    <property name="title">
-     <string>Save as</string>
+    <property name="icon">
+     <iconset resource="UIGraphics.qrc">
+      <normaloff>:/rec/resources/menu_icon-removebg.png</normaloff>:/rec/resources/menu_icon-removebg.png</iconset>
     </property>
+    <addaction name="actionsave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="separator"/>
+    <addaction name="actionLogout"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuSave_List"/>
-   <addaction name="menuSave_as"/>
-   <addaction name="menuDebug_Meni"/>
-   <addaction name="menuLogout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionsave">
+   <property name="text">
+    <string>Upload File</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="UIGraphics.qrc"/>
