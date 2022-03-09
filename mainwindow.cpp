@@ -70,6 +70,11 @@ void MainWindow::DatabasePopulate() {
             getline(infile, menuPrice[i]);
         } getline(infile, s);
 
+        query.prepare("SELECT * FROM restaurant WHERE restName=:restName");
+        query.bindValue(":restName", QString::fromStdString(restName));
+        if (!query.exec()) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
+        if (query.next()) continue;
+
         s = "INSERT INTO restaurant (restName, restNum, d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, menuSize) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + d[0] + "\", \"" + d[1] + "\", \"" + d[2] + "\", \"" + d[3] + "\", \"" + d[4] + "\", \"" + d[5] + "\", \"" + d[6] + "\", \"" + d[7] + "\", \"" + d[8] + "\", \"" + d[9] + "\", \"" + d[10] + "\", \"" + std::to_string(menuSize) + "\");";
         q = QString::fromStdString(s);
         if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
@@ -146,6 +151,11 @@ void MainWindow::DatabaseImport() {
             getline(infile, menuPrice[i]);
         } getline(infile, s);
 
+        query.prepare("SELECT * FROM restaurant WHERE restName=:restName");
+        query.bindValue(":restName", QString::fromStdString(restName));
+        if (!query.exec()) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
+        if (query.next()) continue;
+
         s = "INSERT INTO restaurant (restName, restNum, d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, menuSize) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + d[0] + "\", \"" + d[1] + "\", \"" + d[2] + "\", \"" + d[3] + "\", \"" + d[4] + "\", \"" + d[5] + "\", \"" + d[6] + "\", \"" + d[7] + "\", \"" + d[8] + "\", \"" + d[9] + "\", \"" + d[10] + "\", \"" + d[11] + "\", \"" + d[12] + "\", \"" + std::to_string(menuSize) + "\");";
         q = QString::fromStdString(s);
         if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
@@ -182,8 +192,7 @@ void MainWindow::DatabaseImport() {
 }
 
 // Brandon Display function
-void MainWindow::printDistance(bool sortByDist, QListWidget* list)
-{
+void MainWindow::printDistance(bool sortByDist, QListWidget* list) {
     ostringstream fullList;
     QSqlQuery query;
     QString q;
@@ -199,8 +208,7 @@ void MainWindow::printDistance(bool sortByDist, QListWidget* list)
         q = "SELECT restName, d0 FROM restaurant ORDER BY restName;";
 
     query.exec(q);
-    while(query.next())
-    {
+    while(query.next()) {
 
 //            fullList << query.value(0).toString().toStdString() << " - " << query.value(1).toString().toStdString() << " Miles" << endl;
         listLine = string(query.value(0).toString().toStdString() + " - " + query.value(1).toString().toStdString() + " Miles");
