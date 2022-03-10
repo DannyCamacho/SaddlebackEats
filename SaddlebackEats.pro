@@ -10,15 +10,38 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    debugmenu.cpp \
+    shoppingcart.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    debugmenu.h \
+    shoppingcart.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    debugmenu.ui \
+    shoppingcart.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    UIGraphics.qrc \
+    UIGraphics.qrc
+
+DISTFILES += \
+    .gitignore \
+    README.md \
+    fastfood.txt \
+    resources/SE_1-removebg.png \
+    resources/SE_logo.png \
+    resources/SE_logo_mini.png \
+    resources/addToCart-removebg-.png \
+    resources/menu_icon-removebg.png \
+    resources/plusSign.png \
+    resources/removeSign.png \
+    resources/resturantImage1.png
