@@ -41,7 +41,10 @@ DISTFILES += \
     resources/SE_logo.png \
     resources/SE_logo_mini.png \
     resources/addToCart-removebg-.png \
+    resources/bubble-icon-removebg.png \
     resources/menu_icon-removebg.png \
     resources/plusSign.png \
     resources/removeSign.png \
-    resources/resturantImage1.png
+    resources/resturantImage1.png \
+    resources/shopping-cart-icon-SE-color-removebg.png \
+    resources/shopping-cart-icon-removebg.png
