@@ -21,13 +21,17 @@ public:
     //destructor
     ~shoppingCart();
 
-    void addCart();
 
 private slots:
 
+    void on_buyButton_clicked();
 
 private:
     Ui::shoppingCart *ui;
+    void mainClicked(); //This function is used when 'add item' in MainWindow is clicked
+    void enlist(QListWidgetItem *newLine, QListWidget *list);
+    void resetTrip(); //Receipts are only displayed for each trip only
+
 
 
 

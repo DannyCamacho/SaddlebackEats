@@ -11,7 +11,7 @@
 #include <QSqlQuery>
 #include <QListWidget>
 #include <QSqlQueryModel>
-//#include <QObject>
+#include <QObject>
 #include <sstream>
 using namespace std;
 
@@ -58,11 +58,14 @@ public:
 //        this->ui->dListLabel->setText(QString::fromUtf8(fullList.str()));
     }
 protected:
-    QSqlQueryModel* cartModel; //New Variable
+    QSqlQueryModel* cartModel; //Contains the restaurant name and the menu item being purchased
+    QString restHolder;        //Saves the index for the highlighted value to be used in the inherited class
+
+signals:
+    void cartLink(); //This is an intermediary that connects this class to the inherited class
 
 private slots:
     void on_checkBox_stateChanged(int arg1);
-    //void addPushed(const QModelIndex &index);
     void on_rest_tableView_clicked(const QModelIndex &index);
 
 private:
@@ -73,6 +76,7 @@ private:
     void restTableViewUpdate(int arg1);
     QSqlQueryModel* restModel;
     QSqlQueryModel* menuModel;
+
 
     std::string fileName;
     QIcon resturantImage = QIcon(":/rec/resources/resturantImage1.png");

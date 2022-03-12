@@ -9,7 +9,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     DatabasePopulate();
     restModel = new QSqlQueryModel;
     menuModel = new QSqlQueryModel;
+    cartModel = new QSqlQueryModel;
     on_checkBox_stateChanged(0);
+
+    ui->spinBox->setRange(1,100); //Sets the spinbox range from the default (1,99) to (1,100)
+    connect(ui->pushButton_4, &QPushButton::clicked, this, &MainWindow::cartLink); //This connects the add button to the table in the inherited class, shopping cart
 }
 
 MainWindow::~MainWindow() {
@@ -108,22 +112,13 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
     restTableViewUpdate(arg1);
 }
 
-//NEW FUNCTION HERE
-//void addPushed(const QModelIndex &index)
-//{
-//    QString restName = index.siblingAtColumn(0).data().toString();
-//    QString q;
-//    QSqlQuery query;
-//    std::string s;
-
-//    q = "INSERT INTO cart SELECT restName, menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"";
-//    if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
-
-//}
-
 void MainWindow::on_rest_tableView_clicked(const QModelIndex &index)
 {
     QString restName = index.siblingAtColumn(0).data().toString();
+    restHolder = restName;
     menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
     ui->menu_tableView->setModel(menuModel);
 }
+
+
+

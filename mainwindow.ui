@@ -995,7 +995,7 @@ color: rgb(0, 0, 0);
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>31</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -1021,8 +1021,8 @@ background-color: rgb(255, 255, 255);</string>
      <rect>
       <x>1769</x>
       <y>115</y>
-      <width>181</width>
-      <height>160</height>
+      <width>182</width>
+      <height>167</height>
      </rect>
     </property>
     <property name="font">

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.1.0
+** Created by: Qt User Interface Compiler version 6.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -342,7 +342,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 889, 31));
+        menubar->setGeometry(QRect(0, 0, 889, 30));
         menubar->setFont(font);
         menubar->setContextMenuPolicy(Qt::DefaultContextMenu);
         menubar->setStyleSheet(QString::fromUtf8("selection-background-color: rgb(170, 0, 0);\n"
@@ -351,7 +351,7 @@ public:
         menubar->setNativeMenuBar(true);
         menuMenu = new QMenu(menubar);
         menuMenu->setObjectName(QString::fromUtf8("menuMenu"));
-        menuMenu->setGeometry(QRect(1769, 115, 181, 160));
+        menuMenu->setGeometry(QRect(1769, 115, 182, 167));
         menuMenu->setFont(font);
         menuMenu->setStyleSheet(QString::fromUtf8(""));
         QIcon icon2;
