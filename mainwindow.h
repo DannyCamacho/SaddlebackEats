@@ -59,7 +59,8 @@ public:
     }
 protected:
     QSqlQueryModel* cartModel; //Contains the restaurant name and the menu item being purchased
-    QString restHolder;        //Saves the index for the highlighted value to be used in the inherited class
+    QString restHolder;        //Saves the name for the highlighted value to be used in the inherited class
+    int spinHolder;            //Saves the data for the spinbox
 
 signals:
     void cartLink(); //This is an intermediary that connects this class to the inherited class

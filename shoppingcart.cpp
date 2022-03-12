@@ -22,9 +22,10 @@ shoppingCart::~shoppingCart()
 void shoppingCart::mainClicked()
 {
     QString q;
+    string s;
     QSqlQuery query;
 
-    q = "INSERT INTO cart SELECT restName, menuItem, menuPrice FROM menu WHERE restName =\"" + restHolder + "\"";
+    s = "INSERT INTO cart (restName, menuItem, menuPrice, menuCounter) FROM menu WHERE restName =\"" + restHolder + "\" VALUES (restName, menuItem, menuPrice, \"" + std::to_string(spinHolder) + "\");";
     if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
 
     cartModel->setQuery("SELECT * FROM cart");

@@ -38,7 +38,7 @@ void MainWindow::DatabaseInit() {
     QSqlQuery menu("CREATE TABLE menu (id INTEGER UNIQUE PRIMARY KEY, restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER);");
     if(!menu.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << menu.lastError().text();
 
-    QSqlQuery cart("CREATE TABLE cart (id INTEGER UNIQUE PRIMARY KEY, restName TEXT, menuItem TEXT, meuPrice INTEGER);");
+    QSqlQuery cart("CREATE TABLE cart (id INTEGER UNIQUE PRIMARY KEY, restName TEXT, menuItem TEXT, menuPrice INTEGER, menuCounter INTEGER);");
     if(!cart.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << menu.lastError().text();
 }
 
@@ -116,6 +116,7 @@ void MainWindow::on_rest_tableView_clicked(const QModelIndex &index)
 {
     QString restName = index.siblingAtColumn(0).data().toString();
     restHolder = restName;
+    spinHolder = ui->spinBox->value();
     menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
     ui->menu_tableView->setModel(menuModel);
 }
