@@ -118,7 +118,7 @@ color: rgb(159, 11, 25);</string>
       </item>
      </layout>
     </widget>
-    <widget class="QTableView" name="tableView">
+    <widget class="QTableView" name="cartTableView">
      <property name="geometry">
       <rect>
        <x>0</x>

@@ -14,5 +14,5 @@ ShoppingCart::~ShoppingCart() {
 
 void ShoppingCart::cartTableViewUpdate() {
     cartModel->setQuery("SELECT restName, menuItem, menuPrice, quantity FROM cart ORDER BY restName");
-    ui->rest_tableView->setModel(cartModel);
+    ui->cartTableView->setModel(cartModel);
 }
