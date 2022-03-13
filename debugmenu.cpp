@@ -5,8 +5,6 @@ debugMenu::debugMenu(QWidget *parent): ui(new Ui::debugMenu) {
     ui->setupUi(this);
     restModel = new QSqlQueryModel;
     menuModel = new QSqlQueryModel;
-    fileName = "../SaddlebackEats/CS1D Spring 2022 New Fast Food Project.txt";
-    database.import(fileName);
     restTableViewUpdate();
 };
 
@@ -139,3 +137,18 @@ void debugMenu::on_removeButton_clicked() {
     menuItem = "";
     menuTableViewUpdate();
 }
+
+void debugMenu::on_importFile_triggered()
+{
+    QString filename = QFileDialog::getOpenFileName(this, "Select Import File");
+    fileName = filename.toStdString();
+    QFile file(filename);
+
+    if (!file.open(QIODevice::ReadOnly | QFile::Text)) {
+        QMessageBox::warning(this, "Warning", "Cannot import file: " + file.errorString());
+        return;
+    }
+    database.import(fileName);
+    restTableViewUpdate();
+}
+

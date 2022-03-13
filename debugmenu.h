@@ -30,6 +30,8 @@ private slots:
 
     void on_removeButton_clicked();
 
+    void on_importFile_triggered();
+
 private:
     Ui::debugMenu *ui;
     QSqlQueryModel* restModel;
