@@ -15,6 +15,7 @@ public:
     Database();
     void populate(std::string fileName);
     void import(std::string fileName);
+
 private:
     void connect();
     void init();

@@ -15,10 +15,11 @@ public:
     ~ShoppingCart();
 
 private slots:
+    void cartTableViewUpdate();
+    void calculateTotal();
 
 private:
     Ui::ShoppingCart *ui;
     QSqlQueryModel* cartModel;
-    void cartTableViewUpdate();
 };
 #endif // SHOPPINGCART_H

@@ -29,6 +29,7 @@ private slots:
     void on_pushButton_4_clicked();
     void on_menu_tableView_clicked(const QModelIndex &index);
     void on_cartButton_clicked();
+    void restTableViewUpdate(int arg1);
 
 private:
     Ui::MainWindow *ui;
@@ -42,6 +43,5 @@ private:
     QString menuItem;
     QString menuPrice;
     string fileName;
-    void restTableViewUpdate(int arg1);
 };
 #endif // MAINWINDOW_H

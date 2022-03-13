@@ -49,6 +49,8 @@ void MainWindow::on_pushButton_4_clicked() {
     QSqlQuery query;
     QString quantity = ui->spinBox->text();
     query.exec("INSERT INTO cart (restName, menuItem, menuPrice, quantity) VALUES (\"" + restName + "\", \"" + menuItem + "\", \"" + menuPrice + "\", \"" + quantity + "\");");
+    query.exec("SELECT SUM(X.TOTAL) FROM (SELECT quantity as TOTAL FROM cart) X;");
+    if (query.next()) ui->cartQuantity->setText(query.value(0).toString());
     menuItem = "";
 }
 

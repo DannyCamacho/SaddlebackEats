@@ -21,18 +21,14 @@ signals:
 
 private slots:
     void on_rest_tableView_clicked(const QModelIndex &index);
-
     void on_menu_tableView_clicked(const QModelIndex &index);
-
     void on_editButton_clicked();
-
     void on_addButton_clicked();
-
     void on_removeButton_clicked();
-
     void on_importFile_triggered();
-
     void on_actionLogout_triggered();
+    void restTableViewUpdate();
+    void menuTableViewUpdate();
 
 private:
     Ui::debugMenu *ui;
@@ -42,8 +38,6 @@ private:
     QString restName;
     QString menuItem;
     Database database;
-    void restTableViewUpdate();
-    void menuTableViewUpdate();
 };
 
 #endif // DEBUGMENU_H

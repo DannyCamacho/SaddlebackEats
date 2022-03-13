@@ -144,8 +144,7 @@ void DebugMenu::on_removeButton_clicked() {
     menuTableViewUpdate();
 }
 
-void DebugMenu::on_importFile_triggered()
-{
+void DebugMenu::on_importFile_triggered() {
     QString filename = QFileDialog::getOpenFileName(this, "Select Import File");
     fileName = filename.toStdString();
     QFile file(filename);
