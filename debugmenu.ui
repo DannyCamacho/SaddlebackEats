@@ -588,7 +588,7 @@ color: rgb(0, 0, 0);</string>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="addButton">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -628,7 +628,7 @@ selection-color: rgb(0, 0, 0);</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="editButton">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -656,7 +656,7 @@ selection-color: rgb(0, 0, 0);</string>
       <string>EDIT</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="removeButton">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -736,12 +736,12 @@ selection-background-color: rgb(159, 11, 25);
 selection-color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>menu item</string>
+         <string>Menu Item</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="lineEditItemName">
         <property name="font">
          <font>
           <family>Bahnschrift</family>
@@ -773,12 +773,12 @@ selection-background-color: rgb(159, 11, 25);
 selection-color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
-         <string>price</string>
+         <string>Price ($)</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="lineEditItemPrice">
         <property name="font">
          <font>
           <family>Bahnschrift</family>
@@ -835,7 +835,7 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionsave">
    <property name="text">
-    <string>Upload File</string>
+    <string>Import...</string>
    </property>
    <property name="font">
     <font>

@@ -9,12 +9,14 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    database.cpp \
     debugmenu.cpp \
     main.cpp \
     mainwindow.cpp
     debugmenu.cpp.cpp
 
 HEADERS += \
+    database.h \
     debugmenu.h \
     mainwindow.h
     debugmenu.h
@@ -35,6 +37,7 @@ RESOURCES += \
 
 DISTFILES += \
     .gitignore \
+    CS1D Spring 2022 New Fast Food Project.txt \
     README.md \
     fastfood.txt \
     resources/SE_1-removebg.png \
