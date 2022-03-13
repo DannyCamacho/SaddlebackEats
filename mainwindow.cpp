@@ -5,7 +5,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     restModel = new QSqlQueryModel;
     menuModel = new QSqlQueryModel;
-    cartModel = new QSqlQueryModel;
     fileName = "../SaddlebackEats/fastfood.txt";
     database.populate(fileName);
     on_checkBox_stateChanged(0);
@@ -13,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
 MainWindow::~MainWindow() {
     delete ui;
+    delete restModel;
+    delete menuModel;
 }
 
 void MainWindow::receiveMessage(const QString &msg) {

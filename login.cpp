@@ -24,5 +24,4 @@ void Login::on_pushButtonLogin_clicked() {
 
 void Login::on_pushButtonCancel_clicked() {
     hide();
-    delete ui;
 }

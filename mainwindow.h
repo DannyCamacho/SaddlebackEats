@@ -33,7 +33,6 @@ private:
     Database database;
     QSqlQueryModel* restModel;
     QSqlQueryModel* menuModel;
-    QSqlQueryModel* cartModel;
     string fileName;
     void restTableViewUpdate(int arg1);
     void adminSetup();

@@ -11,6 +11,8 @@ DebugMenu::DebugMenu(QWidget *parent): ui(new Ui::debugMenu) {
 
 DebugMenu::~DebugMenu() {
     delete ui;
+    delete restModel;
+    delete menuModel;
 }
 
 void DebugMenu::restTableViewUpdate() {
