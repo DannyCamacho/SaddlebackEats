@@ -45,7 +45,7 @@ void MainWindow::on_actionLogin_triggered() {
 }
 
 void MainWindow::on_pushButton_4_clicked() {
-    if (menuItem == "") return;
+    if (menuItem == "" || ui->spinBox->text().toInt() == 0) return;
     int quantity = ui->spinBox->text().toInt();
     QString q = "INSERT INTO cart (restName, menuItem, menuPrice, quantity) VALUES (\"" + restName + "\", \"" + menuItem + "\", \"" + menuPrice + "\", \"" + QString::number(quantity) + "\");";
     QSqlQuery query("SELECT quantity FROM cart where restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";");
