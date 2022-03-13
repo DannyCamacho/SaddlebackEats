@@ -9,25 +9,16 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     fileName = "../SaddlebackEats/fastfood.txt";
     database.populate(fileName);
     on_checkBox_stateChanged(0);
-    testLogin();
 }
 
 MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::testLogin() {
-    login = new Login(this);
-    login->show();
-}
-
-void MainWindow::receiveMessage(const QString &msg)
-{
-    QMessageBox::information(this,"Message",msg);
+void MainWindow::receiveMessage(const QString &msg) {
     hide();
     debugMenu = new DebugMenu(this);
     debugMenu->show();
-
 }
 
 void MainWindow::adminSetup() {
@@ -49,3 +40,9 @@ void MainWindow::on_rest_tableView_clicked(const QModelIndex &index) {
     menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
     ui->menu_tableView->setModel(menuModel);
 }
+
+void MainWindow::on_actionLogin_triggered() {
+    login = new Login(this);
+    login->show();
+}
+

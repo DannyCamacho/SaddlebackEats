@@ -155,3 +155,10 @@ void DebugMenu::on_importFile_triggered()
     database.import(fileName);
     restTableViewUpdate();
 }
+
+void DebugMenu::on_actionLogout_triggered() {
+    MainWindow* mainWindow = new MainWindow(this);
+    mainWindow->show();
+    hide();
+    delete ui;
+}

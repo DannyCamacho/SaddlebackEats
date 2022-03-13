@@ -16,6 +16,9 @@ public:
     explicit DebugMenu(QWidget *parent = nullptr);
     ~DebugMenu();
 
+signals:
+    void sendMessage(const QString &msg);
+
 private slots:
     void on_rest_tableView_clicked(const QModelIndex &index);
 
@@ -28,6 +31,8 @@ private slots:
     void on_removeButton_clicked();
 
     void on_importFile_triggered();
+
+    void on_actionLogout_triggered();
 
 private:
     Ui::debugMenu *ui;

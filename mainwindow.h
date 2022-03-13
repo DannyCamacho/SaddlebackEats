@@ -24,6 +24,7 @@ public slots:
 private slots:
     void on_checkBox_stateChanged(int arg1);
     void on_rest_tableView_clicked(const QModelIndex &index);
+    void on_actionLogin_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -36,6 +37,5 @@ private:
     string fileName;
     void restTableViewUpdate(int arg1);
     void adminSetup();
-    void testLogin();
 };
 #endif // MAINWINDOW_H

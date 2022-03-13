@@ -22,8 +22,7 @@ void Login::on_pushButtonLogin_clicked() {
     } else QMessageBox::warning(this, "Login", "Incorrect username or password");
 }
 
-void Login::on_pushButtonCancel_clicked()
-{
+void Login::on_pushButtonCancel_clicked() {
     hide();
     delete ui;
 }
