@@ -990,7 +990,7 @@ color: rgb(0, 0, 0);</string>
       </font>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::WheelFocus</enum>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
@@ -1011,11 +1011,17 @@ selection-background-color: rgb(225, 225, 225);
      <property name="buttonSymbols">
       <enum>QAbstractSpinBox::PlusMinus</enum>
      </property>
+     <property name="correctionMode">
+      <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
+     </property>
      <property name="keyboardTracking">
       <bool>true</bool>
      </property>
      <property name="showGroupSeparator" stdset="0">
       <bool>false</bool>
+     </property>
+     <property name="maximum">
+      <number>100</number>
      </property>
      <property name="value">
       <number>1</number>
