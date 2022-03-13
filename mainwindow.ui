@@ -580,6 +580,9 @@ selection-color: rgb(159, 11, 25);
        <pointsize>11</pointsize>
       </font>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);
@@ -650,6 +653,9 @@ selection-color: rgb(0, 0, 0);</string>
        <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
