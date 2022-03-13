@@ -13,14 +13,16 @@ SOURCES += \
     debugmenu.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    shoppingcart.cpp
     debugmenu.cpp.cpp
 
 HEADERS += \
     database.h \
     debugmenu.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    shoppingcart.h
     debugmenu.h
 
 FORMS += \

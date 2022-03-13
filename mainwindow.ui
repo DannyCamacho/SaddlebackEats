@@ -1049,7 +1049,7 @@ color: rgb(0, 0, 0);
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="cartButton">
      <property name="geometry">
       <rect>
        <x>150</x>

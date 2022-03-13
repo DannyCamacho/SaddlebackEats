@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "database.h"
 #include "debugmenu.h"
+#include "shoppingcart.h"
 #include "login.h"
 
 using namespace std;
@@ -25,16 +26,22 @@ private slots:
     void on_checkBox_stateChanged(int arg1);
     void on_rest_tableView_clicked(const QModelIndex &index);
     void on_actionLogin_triggered();
+    void on_pushButton_4_clicked();
+    void on_menu_tableView_clicked(const QModelIndex &index);
+    void on_cartButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     Login* login;
     DebugMenu* debugMenu;
+    ShoppingCart* shoppingCart;
     Database database;
     QSqlQueryModel* restModel;
     QSqlQueryModel* menuModel;
+    QString restName;
+    QString menuItem;
+    QString menuPrice;
     string fileName;
     void restTableViewUpdate(int arg1);
-    void adminSetup();
 };
 #endif // MAINWINDOW_H
