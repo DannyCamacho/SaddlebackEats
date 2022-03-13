@@ -585,9 +585,9 @@ color: rgb(159, 11, 25);</string>
     <widget class="QLabel" name="totalAmount">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>160</x>
        <y>70</y>
-       <width>81</width>
+       <width>71</width>
        <height>31</height>
       </rect>
      </property>
