@@ -46,12 +46,16 @@ void MainWindow::on_actionLogin_triggered() {
 
 void MainWindow::on_pushButton_4_clicked() {
     if (menuItem == "") return;
-    QSqlQuery query;
-    QString quantity = ui->spinBox->text();
-    query.exec("INSERT INTO cart (restName, menuItem, menuPrice, quantity) VALUES (\"" + restName + "\", \"" + menuItem + "\", \"" + menuPrice + "\", \"" + quantity + "\");");
+    int quantity = ui->spinBox->text().toInt();
+    QString q = "INSERT INTO cart (restName, menuItem, menuPrice, quantity) VALUES (\"" + restName + "\", \"" + menuItem + "\", \"" + menuPrice + "\", \"" + QString::number(quantity) + "\");";
+    QSqlQuery query("SELECT quantity FROM cart where restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";");
+    if (query.next()) {
+        quantity += query.value(0).toInt();
+        q = "UPDATE cart SET restName =\"" + restName + "\", menuItem =\"" + menuItem + "\", menuPrice =\"" + menuPrice + "\", quantity =\"" + QString::number(quantity) + "\" WHERE restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";";
+    }
+    query.exec(q);
     query.exec("SELECT SUM(X.TOTAL) FROM (SELECT quantity as TOTAL FROM cart) X;");
     if (query.next()) ui->cartQuantity->setText(query.value(0).toString());
-    menuItem = "";
 }
 
 void MainWindow::on_menu_tableView_clicked(const QModelIndex &index) {
