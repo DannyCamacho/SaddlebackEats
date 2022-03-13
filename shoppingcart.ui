@@ -123,12 +123,12 @@ color: rgb(159, 11, 25);</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>521</width>
+       <width>440</width>
        <height>341</height>
       </rect>
      </property>
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -139,6 +139,9 @@ color: rgb(159, 11, 25);</string>
        <pointsize>11</pointsize>
       </font>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
      </property>
@@ -148,6 +151,12 @@ color: rgb(0, 0, 0);
 alternate-background-color: rgb(225, 225, 225);
 selection-background-color: rgb(159, 11, 25);
 selection-color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
      </property>
      <property name="horizontalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -183,13 +192,13 @@ selection-color: rgb(0, 0, 0);</string>
       <bool>false</bool>
      </attribute>
      <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>50</number>
+      <number>60</number>
      </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>135</number>
+      <number>130</number>
      </attribute>
      <attribute name="horizontalHeaderStretchLastSection">
-      <bool>false</bool>
+      <bool>true</bool>
      </attribute>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
