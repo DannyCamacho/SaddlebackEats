@@ -10,6 +10,7 @@ ShoppingCart::ShoppingCart(QWidget *parent): ui(new Ui::ShoppingCart) {
 
 ShoppingCart::~ShoppingCart() {
     delete ui;
+    delete cartModel;
 }
 
 void ShoppingCart::cartTableViewUpdate() {
@@ -19,9 +20,6 @@ void ShoppingCart::cartTableViewUpdate() {
 }
 
 void ShoppingCart::calculateTotal() {
-    QString total;
-    QSqlQuery query;
-    query.exec("SELECT SUM(X.TOTAL) FROM (SELECT menuPrice * quantity as TOTAL FROM cart) X;");
-    if (query.next()) total = query.value(0).toString();
-    ui->totalAmount->setText(total);
+    QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT menuPrice * quantity as TOTAL FROM cart) X;");
+    if (query.next()) ui->totalAmount->setText(query.value(0).toString());
 }
