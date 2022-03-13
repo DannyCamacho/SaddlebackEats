@@ -26,6 +26,7 @@ HEADERS += \
     debugmenu.h
 
 FORMS += \
+    customtrip.ui \
     debugmenu.ui \
     login.ui \
     mainwindow.ui \
