@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "database.h"
+#include "login.h"
 
 using namespace std;
 
@@ -16,17 +17,23 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void receiveMessage(const QString &msg);
+
 private slots:
     void on_checkBox_stateChanged(int arg1);
     void on_rest_tableView_clicked(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;
+    Login* login;
     Database database;
     QSqlQueryModel* restModel;
     QSqlQueryModel* menuModel;
     QSqlQueryModel* cartModel;
     string fileName;
     void restTableViewUpdate(int arg1);
+    void adminSetup();
+    void testLogin();
 };
 #endif // MAINWINDOW_H

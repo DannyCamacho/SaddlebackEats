@@ -9,10 +9,25 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     fileName = "../SaddlebackEats/fastfood.txt";
     database.populate(fileName);
     on_checkBox_stateChanged(0);
+    testLogin();
 }
 
 MainWindow::~MainWindow() {
     delete ui;
+}
+
+void MainWindow::testLogin() {
+    login = new Login(this);
+    login->show();
+}
+
+void MainWindow::receiveMessage(const QString &msg)
+{
+    QMessageBox::information(this,"Message",msg);
+    adminSetup();
+}
+
+void MainWindow::adminSetup() {
 }
 
 void MainWindow::restTableViewUpdate(int arg1) {

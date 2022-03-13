@@ -25,7 +25,7 @@ void Database::init() {
     QSqlQuery restaurant("CREATE TABLE restaurant (restName TEXT, restNum INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER, d9 INTEGER, d10 INTEGER, d11 INTEGER, d12 INTEGER, d13 INTEGER, d14 INTEGER, d15 INTEGER, d16 INTEGER, d17 INTEGER, d18 INTEGER, d19 INTEGER, d20 INTEGER, menuSize TEXT);");
     if(!restaurant.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << restaurant.lastError().text();
 
-    QSqlQuery menu("CREATE TABLE menu (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER);");
+    QSqlQuery menu("CREATE TABLE menu (restName TEXT, menuItem TEXT, menuPrice INTEGER);");
     if(!menu.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << menu.lastError().text();
 
     QSqlQuery cart("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
@@ -82,7 +82,7 @@ void Database::populate(std::string fileName) {
 //        std::cout << query.value(1).toString().toStdString() << " " << query.value(2).toString().toStdString() << " " << query.value(3).toString().toStdString() << " " << query.value(4).toString().toStdString() << " " << query.value(5).toString().toStdString() << " " << query.value(6).toString().toStdString() << " " << query.value(7).toString().toStdString() << " " << query.value(8).toString().toStdString() << " " << query.value(9).toString().toStdString() << " " << query.value(10).toString().toStdString() << " " << query.value(11).toString().toStdString() << " " << query.value(12).toString().toStdString() << " " << query.value(13).toString().toStdString() << " " << query.value(14).toString().toStdString() << std::endl;
 
         for (int i = 0; i < menuSize; ++i) {
-            s = "INSERT INTO menu (restName, restNum, menuItem, menuPrice) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + menuItem[i] + "\", \"" + menuPrice[i] + "\");";
+            s = "INSERT INTO menu (restName, menuItem, menuPrice) VALUES (\"" + restName + "\", \"" + menuItem[i] + "\", \"" + menuPrice[i] + "\");";
             q = QString::fromStdString(s);
             if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
 

@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QFileDialog>
-#include <regex>
 #include "database.h"
 
 using namespace std;
@@ -21,8 +20,6 @@ private slots:
     void on_rest_tableView_clicked(const QModelIndex &index);
 
     void on_menu_tableView_clicked(const QModelIndex &index);
-
-
 
     void on_editButton_clicked();
 

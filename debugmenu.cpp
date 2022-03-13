@@ -1,5 +1,6 @@
 #include "debugmenu.h"
 #include "ui_debugmenu.h"
+#include "mainwindow.h"
 
 debugMenu::debugMenu(QWidget *parent): ui(new Ui::debugMenu) {
     ui->setupUi(this);
@@ -154,4 +155,3 @@ void debugMenu::on_importFile_triggered()
     database.import(fileName);
     restTableViewUpdate();
 }
-

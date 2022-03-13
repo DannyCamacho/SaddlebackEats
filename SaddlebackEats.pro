@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     database.cpp \
     debugmenu.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp
     debugmenu.cpp.cpp
@@ -18,11 +19,13 @@ SOURCES += \
 HEADERS += \
     database.h \
     debugmenu.h \
+    login.h \
     mainwindow.h
     debugmenu.h
 
 FORMS += \
     debugmenu.ui \
+    login.ui \
     mainwindow.ui
     debugmenu.ui
 
