@@ -1023,6 +1023,9 @@ color: rgb(0, 0, 0);
        <height>71</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background: none;</string>
+     </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -1057,41 +1060,13 @@ color: rgb(0, 0, 0);
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>45</x>
-        <y>1</y>
-        <width>31</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Bahnschrift</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: none;</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="text">
-       <string>1</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
      <widget class="QFrame" name="frame_7">
       <property name="geometry">
        <rect>
-        <x>41</x>
-        <y>-3</y>
-        <width>41</width>
-        <height>31</height>
+        <x>50</x>
+        <y>0</y>
+        <width>31</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1104,6 +1079,34 @@ image: url(:/rec/resources/bubble-icon-removebg.png);</string>
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
       </property>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>31</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Bahnschrift</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: none;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -1114,7 +1117,7 @@ image: url(:/rec/resources/bubble-icon-removebg.png);</string>
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>28</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -1140,8 +1143,8 @@ background-color: rgb(255, 255, 255);</string>
      <rect>
       <x>343</x>
       <y>118</y>
-      <width>195</width>
-      <height>157</height>
+      <width>182</width>
+      <height>167</height>
      </rect>
     </property>
     <property name="font">
