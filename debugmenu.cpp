@@ -46,17 +46,8 @@ void debugMenu::on_editButton_clicked() {
         return;
     }
 
-    QSqlQuery query;
     QString newMenuItem = ui->lineEditItemName->text();
-    QString q = "SELECT * FROM menu WHERE menuItem =\"" + newMenuItem + "\" AND restName =\"" + restName + "\";";
-    query.exec(q);
-    if (query.next()) {
-       QMessageBox messageBox;
-       messageBox.critical(0,"Duplicate Menu Item","Menu Item already exists!");
-       messageBox.setFixedSize(500,200);
-       return;
-    }
-
+    QString menuPrice = ui->lineEditItemPrice->text();
     if (newMenuItem == "") {
         QMessageBox messageBox;
         messageBox.critical(0,"Invalid Edit","Please Input an Item Name!");
@@ -64,7 +55,19 @@ void debugMenu::on_editButton_clicked() {
         return;
     }
 
-    QString menuPrice = ui->lineEditItemPrice->text();
+    QSqlQuery query;
+    query.exec("UPDATE menu SET menuItem =\"TEMPORARYITEMNAME\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"" + menuItem + "\";");
+
+    QString q = "SELECT * FROM menu WHERE menuItem =\"" + menuItem + "\" AND restName =\"" + restName + "\";";
+    query.exec(q);
+    if (query.next()) {
+       QMessageBox messageBox;
+       messageBox.critical(0,"Duplicate Menu Item","Menu Item already exists!");
+       messageBox.setFixedSize(500,200);
+       query.exec("UPDATE menu SET menuItem =\"" + menuItem + "\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"TEMPORARYITEMNAME\";");
+       return;
+    }
+
     QRegularExpression re("^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$");
     QRegularExpressionMatch match = re.match(menuPrice);
     if (!match.hasMatch()) {
@@ -74,7 +77,7 @@ void debugMenu::on_editButton_clicked() {
         return;
     }
 
-    query.exec("UPDATE menu SET menuItem =\"" + newMenuItem + "\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"" + menuItem + "\";");
+    query.exec("UPDATE menu SET menuItem =\"" + newMenuItem + "\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"TEMPORARYITEMNAME\";");
     menuItem = "";
     menuTableViewUpdate();
 }
