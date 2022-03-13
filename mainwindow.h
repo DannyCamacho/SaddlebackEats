@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "database.h"
+#include "debugmenu.h"
 #include "login.h"
 
 using namespace std;
@@ -27,6 +28,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Login* login;
+    DebugMenu* debugMenu;
     Database database;
     QSqlQueryModel* restModel;
     QSqlQueryModel* menuModel;

@@ -24,7 +24,10 @@ void MainWindow::testLogin() {
 void MainWindow::receiveMessage(const QString &msg)
 {
     QMessageBox::information(this,"Message",msg);
-    adminSetup();
+    hide();
+    debugMenu = new DebugMenu(this);
+    debugMenu->show();
+
 }
 
 void MainWindow::adminSetup() {

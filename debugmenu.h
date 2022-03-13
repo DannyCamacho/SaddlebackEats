@@ -9,12 +9,12 @@
 using namespace std;
 
 namespace Ui { class debugMenu; }
-class debugMenu : public QMainWindow {
+class DebugMenu : public QMainWindow {
     Q_OBJECT
 
 public:
-    explicit debugMenu(QWidget *parent = nullptr);
-    ~debugMenu();
+    explicit DebugMenu(QWidget *parent = nullptr);
+    ~DebugMenu();
 
 private slots:
     void on_rest_tableView_clicked(const QModelIndex &index);

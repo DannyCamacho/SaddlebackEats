@@ -13,7 +13,7 @@ Login::~Login() {
 
 void Login::on_pushButtonLogin_clicked() {
     QString username = ui->lineEditUsername->text();
-    QString password = ui->labelPassword->text();
+    QString password = ui->lineEditPassword->text();
 
     if (username == "admin" && password == "password") {
         emit sendMessage("Admin Logged in");

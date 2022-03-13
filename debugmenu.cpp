@@ -2,28 +2,28 @@
 #include "ui_debugmenu.h"
 #include "mainwindow.h"
 
-debugMenu::debugMenu(QWidget *parent): ui(new Ui::debugMenu) {
+DebugMenu::DebugMenu(QWidget *parent): ui(new Ui::debugMenu) {
     ui->setupUi(this);
     restModel = new QSqlQueryModel;
     menuModel = new QSqlQueryModel;
     restTableViewUpdate();
 };
 
-debugMenu::~debugMenu() {
+DebugMenu::~DebugMenu() {
     delete ui;
 }
 
-void debugMenu::restTableViewUpdate() {
+void DebugMenu::restTableViewUpdate() {
     restModel->setQuery("SELECT restName, d0 FROM restaurant ORDER BY restName");
     ui->rest_tableView->setModel(restModel);
 }
 
-void debugMenu::menuTableViewUpdate() {
+void DebugMenu::menuTableViewUpdate() {
     menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
     ui->menu_tableView->setModel(menuModel);
 }
 
-void debugMenu::on_rest_tableView_clicked(const QModelIndex &index) {
+void DebugMenu::on_rest_tableView_clicked(const QModelIndex &index) {
     restName = index.siblingAtColumn(0).data().toString();
     menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
     ui->menu_tableView->setModel(menuModel);
@@ -32,14 +32,14 @@ void debugMenu::on_rest_tableView_clicked(const QModelIndex &index) {
     menuItem = "";
 }
 
-void debugMenu::on_menu_tableView_clicked(const QModelIndex &index) {
+void DebugMenu::on_menu_tableView_clicked(const QModelIndex &index) {
     menuItem = index.siblingAtColumn(0).data().toString();
     ui->lineEditItemName->setText(index.siblingAtColumn(0).data().toString());
     ui->lineEditItemPrice->setText(index.siblingAtColumn(1).data().toString());
 }
 
 
-void debugMenu::on_editButton_clicked() {
+void DebugMenu::on_editButton_clicked() {
     if (restName == "") {
         QMessageBox messageBox;
         messageBox.critical(0,"Invalid Edit","Please Select a Restaurant!");
@@ -83,7 +83,7 @@ void debugMenu::on_editButton_clicked() {
     menuTableViewUpdate();
 }
 
-void debugMenu::on_addButton_clicked() {
+void DebugMenu::on_addButton_clicked() {
     if (restName == "") {
         QMessageBox messageBox;
         messageBox.critical(0,"Invalid Addition","Please Select a Restaurant!");
@@ -124,7 +124,7 @@ void debugMenu::on_addButton_clicked() {
     menuTableViewUpdate();
 }
 
-void debugMenu::on_removeButton_clicked() {
+void DebugMenu::on_removeButton_clicked() {
     if (menuItem == "") {
         QMessageBox messageBox;
         messageBox.critical(0,"Invalid Deletion","Please Select a Menu Item!");
@@ -142,7 +142,7 @@ void debugMenu::on_removeButton_clicked() {
     menuTableViewUpdate();
 }
 
-void debugMenu::on_importFile_triggered()
+void DebugMenu::on_importFile_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Select Import File");
     fileName = filename.toStdString();
