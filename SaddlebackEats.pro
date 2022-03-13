@@ -23,7 +23,8 @@ HEADERS += \
 
 FORMS += \
     debugmenu.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    shoppingcart.ui
     debugmenu.ui
 
 # Default rules for deployment.
