@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <regex>
 #include "database.h"
 
 using namespace std;

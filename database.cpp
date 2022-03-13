@@ -151,7 +151,7 @@ void Database::import(std::string fileName) {
 //        std::cout << query.value(1).toString().toStdString() << " " << query.value(2).toString().toStdString() << " " << query.value(3).toString().toStdString() << " " << query.value(4).toString().toStdString() << " " << query.value(5).toString().toStdString() << " " << query.value(6).toString().toStdString() << " " << query.value(7).toString().toStdString() << " " << query.value(8).toString().toStdString() << " " << query.value(9).toString().toStdString() << " " << query.value(10).toString().toStdString() << " " << query.value(11).toString().toStdString() << " " << query.value(12).toString().toStdString() << " " << query.value(13).toString().toStdString() << " " << query.value(14).toString().toStdString() << " " << query.value(15).toString().toStdString() << std::endl;
 
         for (int i = 0; i < menuSize; ++i) {
-            s = "INSERT INTO menu (restName, restNum, menuItem, menuPrice) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + menuItem[i] + "\", \"" + menuPrice[i] + "\");";
+            s = "INSERT INTO menu (restName, menuItem, menuPrice) VALUES (\"" + restName + "\", \"" + menuItem[i] + "\", \"" + menuPrice[i] + "\");";
             q = QString::fromStdString(s);
             if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
 

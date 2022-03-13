@@ -10,8 +10,7 @@ debugMenu::debugMenu(QWidget *parent): ui(new Ui::debugMenu) {
     restTableViewUpdate();
 };
 
-debugMenu::~debugMenu()
-{
+debugMenu::~debugMenu() {
     delete ui;
 }
 
@@ -31,6 +30,7 @@ void debugMenu::on_rest_tableView_clicked(const QModelIndex &index) {
     ui->menu_tableView->setModel(menuModel);
     ui->lineEditItemName->setText("");
     ui->lineEditItemPrice->setText("");
+    menuItem = "";
 }
 
 void debugMenu::on_menu_tableView_clicked(const QModelIndex &index) {
@@ -40,35 +40,87 @@ void debugMenu::on_menu_tableView_clicked(const QModelIndex &index) {
 }
 
 
-void debugMenu::on_editButton_clicked()
-{
-
-}
-
-
-
-
-void debugMenu::on_addButton_clicked() {
+void debugMenu::on_editButton_clicked() {
     if (restName == "") {
         QMessageBox messageBox;
-        messageBox.critical(0,"Invalid Add","Please Select a Restaurant!");
+        messageBox.critical(0,"Invalid Edit","Please Select a Restaurant!");
         messageBox.setFixedSize(500,200);
         return;
     }
 
-   QSqlQuery query;
-   query.prepare("SELECT * FROM menu WHERE restName=:restName AND menuItem=:menuItem");
-   query.bindValue(":teamName", restName);
-   query.bindValue(":menuItem", menuItem);
-   if (!query.exec()) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
-   if (query.next()) {
+    QSqlQuery query;
+    QString newMenuItem = ui->lineEditItemName->text();
+    QString q = "SELECT * FROM menu WHERE menuItem =\"" + newMenuItem + "\" AND restName =\"" + restName + "\";";
+    query.exec(q);
+    if (query.next()) {
        QMessageBox messageBox;
        messageBox.critical(0,"Duplicate Menu Item","Menu Item already exists!");
        messageBox.setFixedSize(500,200);
        return;
     }
+
+    if (newMenuItem == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Edit","Please Input an Item Name!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QString menuPrice = ui->lineEditItemPrice->text();
+    QRegularExpression re("^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$");
+    QRegularExpressionMatch match = re.match(menuPrice);
+    if (!match.hasMatch()) {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Price","Please Input a Valid Price!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    query.exec("UPDATE menu SET menuItem =\"" + newMenuItem + "\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"" + menuItem + "\";");
+    menuItem = "";
+    menuTableViewUpdate();
 }
 
+void debugMenu::on_addButton_clicked() {
+    if (restName == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Addition","Please Select a Restaurant!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QSqlQuery query;
+    menuItem = ui->lineEditItemName->text();
+    QString q = "SELECT * FROM menu WHERE menuItem =\"" + menuItem + "\" AND restName =\"" + restName + "\";";
+    query.exec(q);
+    if (query.next()) {
+       QMessageBox messageBox;
+       messageBox.critical(0,"Duplicate Menu Item","Menu Item already exists!");
+       messageBox.setFixedSize(500,200);
+       return;
+    }
+
+    if (menuItem == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Addition","Please Input an Item Name!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QString menuPrice = ui->lineEditItemPrice->text();
+    QRegularExpression re("^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$");
+    QRegularExpressionMatch match = re.match(menuPrice);
+    if (!match.hasMatch()) {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Price","Please Input a Valid Price!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    query.exec("INSERT INTO menu (restName, menuItem, menuPrice) VALUES (\"" + restName + "\", \"" + menuItem + "\", \"" + menuPrice + "\");");
+    menuItem = "";
+    menuTableViewUpdate();
+}
 
 void debugMenu::on_removeButton_clicked() {
     if (menuItem == "") {
