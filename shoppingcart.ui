@@ -75,8 +75,6 @@
        <widget class="QPushButton" name="emptyButton">
         <property name="font">
          <font>
-          <family>Segoe UI Semibold</family>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -99,8 +97,6 @@ color: rgb(159, 11, 25);</string>
        <widget class="QPushButton" name="removeButton">
         <property name="font">
          <font>
-          <family>Segoe UI Semibold</family>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -123,8 +119,6 @@ color: rgb(159, 11, 25);</string>
         </property>
         <property name="font">
          <font>
-          <family>Segoe UI Semibold</family>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -147,8 +141,6 @@ selection-background-color: rgb(225, 225, 225);
        <widget class="QPushButton" name="updateButton">
         <property name="font">
          <font>
-          <family>Segoe UI Semibold</family>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -186,7 +178,6 @@ color: rgb(159, 11, 25);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -291,7 +282,6 @@ selection-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>16</pointsize>
       </font>
      </property>
@@ -310,9 +300,9 @@ selection-color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>190</y>
+      <y>200</y>
       <width>261</width>
-      <height>101</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -328,7 +318,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="pushButton_5">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>200</x>
        <y>40</y>
        <width>51</width>
        <height>31</height>
@@ -336,7 +326,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>12</pointsize>
       </font>
      </property>
@@ -360,13 +349,12 @@ color: rgb(0, 0, 0);
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>161</width>
+       <width>181</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -389,7 +377,6 @@ selection-background-color: rgb(225, 225, 225);
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -453,9 +440,7 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Segoe UI Semibold</family>
        <pointsize>12</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -493,7 +478,6 @@ color: rgb(159, 11, 25);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>16</pointsize>
       </font>
      </property>
@@ -521,9 +505,7 @@ color: rgb(159, 11, 25);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>16</pointsize>
-       <weight>50</weight>
        <bold>false</bold>
       </font>
      </property>
@@ -581,7 +563,6 @@ color: rgb(159, 11, 25);</string>
          </property>
          <property name="font">
           <font>
-           <family>Bahnschrift</family>
            <pointsize>11</pointsize>
           </font>
          </property>
@@ -610,9 +591,7 @@ background: none;</string>
          </property>
          <property name="font">
           <font>
-           <family>Bahnschrift</family>
            <pointsize>11</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -644,7 +623,6 @@ background: none;</string>
          </property>
          <property name="font">
           <font>
-           <family>Bahnschrift</family>
            <pointsize>11</pointsize>
           </font>
          </property>
@@ -673,9 +651,7 @@ background: none;</string>
          </property>
          <property name="font">
           <font>
-           <family>Bahnschrift</family>
            <pointsize>11</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -721,9 +697,7 @@ background: none;</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
-       <weight>50</weight>
        <bold>false</bold>
       </font>
      </property>
@@ -746,6 +720,75 @@ color: rgb(0, 0, 0);</string>
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="frame_11">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>150</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>174</x>
+       <y>10</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);
+background: none;</string>
+     </property>
+     <property name="text">
+      <string>0.0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);
+background: none;</string>
+     </property>
+     <property name="text">
+      <string>Total Distance: </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -753,7 +796,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
