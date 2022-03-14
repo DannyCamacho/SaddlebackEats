@@ -11,5 +11,6 @@
         <file>resources/shopping-cart-icon-removebg.png</file>
         <file>resources/shopping-cart-icon-SE-color-removebg.png</file>
         <file>resources/bubble-icon-removebg.png</file>
+        <file>resources/return-icon-removebg.png</file>
     </qresource>
 </RCC>
