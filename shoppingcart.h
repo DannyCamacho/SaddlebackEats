@@ -2,44 +2,29 @@
 #define SHOPPINGCART_H
 
 #include <QMainWindow>
-#include <QTextEdit>
-#include "mainwindow.h"
-#include<QDebug>
+#include "database.h"
+#include "receipt.h"
 
-namespace Ui {
-class shoppingCart;
-}
+using namespace std;
 
-class shoppingCart : public MainWindow
-{
+namespace Ui { class ShoppingCart; }
+class ShoppingCart : public QMainWindow {
     Q_OBJECT
 
 public:
-    // default constructor
-    explicit shoppingCart(QWidget *parent = nullptr);
-
-    //destructor
-    ~shoppingCart();
-
+    explicit ShoppingCart(QWidget *parent = nullptr);
+    ~ShoppingCart();
 
 private slots:
+    void cartTableViewUpdate();
+    void calculateTotal();
 
-    void on_buyButton_clicked();
+    void on_pushButton_3_clicked();
 
 private:
-    Ui::shoppingCart *ui;
-    void mainClicked(); //This function is used when 'add item' in MainWindow is clicked
-    void RecursiveSort(QString restName);
-    void enlist(QListWidgetItem *newLine, QListWidget *list);
-    void resetTrip(); //Receipts are only displayed for each trip only
-    void getDistances(QString restName);
-    vector<QString> vec;
-    vector <double> distAr;
-
-
-
-
+    Ui::ShoppingCart *ui;
+    QSqlQueryModel* cartModel;
+    receipt *receipt;
 
 };
-
 #endif // SHOPPINGCART_H

@@ -1,123 +1,165 @@
 #include "debugmenu.h"
 #include "ui_debugmenu.h"
+#include "mainwindow.h"
 
-debugMenu::debugMenu(QWidget *parent) :
-    MainWindow(parent),
-    ui(new Ui::debugMenu)
-{
+DebugMenu::DebugMenu(QWidget *parent): ui(new Ui::debugMenu) {
     ui->setupUi(this);
-
-    // sets all header text to read only
-    //ui->listTitleText->setReadOnly(true);
-
-    // assigns QPix image to green plus sign
-    QPixmap addPix(":/rec/resources/plusSign.png");
-    addPix = addPix.scaled(30, 30);
-    //ui->addLabel->setPixmap(addPix);
-
-     // assigns QPix image to red x sign
-    QPixmap removePix(":/rec/resources/removeSign.png");
-    removePix = removePix.scaled(40, 40);
-   //ui->removeLabel->setPixmap(removePix);
-
-    // prints out initial list
-    printDistance(0, ui->resturantList);
+    restModel = new QSqlQueryModel;
+    menuModel = new QSqlQueryModel;
+    restTableViewUpdate();
 };
 
+DebugMenu::~DebugMenu() {
+    delete ui;
+    delete restModel;
+    delete menuModel;
+}
 
-debugMenu::~debugMenu()
-{
+void DebugMenu::restTableViewUpdate() {
+    restModel->setQuery("SELECT restName, d0 FROM restaurant ORDER BY restName");
+    ui->rest_tableView->setModel(restModel);
+}
+
+void DebugMenu::menuTableViewUpdate() {
+    menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
+    ui->menu_tableView->setModel(menuModel);
+}
+
+void DebugMenu::on_rest_tableView_clicked(const QModelIndex &index) {
+    restName = index.siblingAtColumn(0).data().toString();
+    menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
+    ui->menu_tableView->setModel(menuModel);
+    ui->lineEditItemName->setText("");
+    ui->lineEditItemPrice->setText("");
+    menuItem = "";
+}
+
+void DebugMenu::on_menu_tableView_clicked(const QModelIndex &index) {
+    menuItem = index.siblingAtColumn(0).data().toString();
+    ui->lineEditItemName->setText(index.siblingAtColumn(0).data().toString());
+    ui->lineEditItemPrice->setText(index.siblingAtColumn(1).data().toString());
+}
+
+
+void DebugMenu::on_editButton_clicked() {
+    if (restName == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Edit","Please Select a Restaurant!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QString newMenuItem = ui->lineEditItemName->text();
+    QString menuPrice = ui->lineEditItemPrice->text();
+    if (newMenuItem == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Edit","Please Input an Item Name!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QSqlQuery query;
+    query.exec("UPDATE menu SET menuItem =\"TEMPORARYITEMNAME\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"" + menuItem + "\";");
+
+    QString q = "SELECT * FROM menu WHERE menuItem =\"" + menuItem + "\" AND restName =\"" + restName + "\";";
+    query.exec(q);
+    if (query.next()) {
+       QMessageBox messageBox;
+       messageBox.critical(0,"Duplicate Menu Item","Menu Item already exists!");
+       messageBox.setFixedSize(500,200);
+       query.exec("UPDATE menu SET menuItem =\"" + menuItem + "\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"TEMPORARYITEMNAME\";");
+       return;
+    }
+
+    QRegularExpression re("^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$");
+    QRegularExpressionMatch match = re.match(menuPrice);
+    if (!match.hasMatch()) {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Price","Please Input a Valid Price!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    query.exec("UPDATE menu SET menuItem =\"" + newMenuItem + "\", menuPrice =\"" + menuPrice + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"TEMPORARYITEMNAME\";");
+    menuItem = "";
+    menuTableViewUpdate();
+}
+
+void DebugMenu::on_addButton_clicked() {
+    if (restName == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Addition","Please Select a Restaurant!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QSqlQuery query;
+    menuItem = ui->lineEditItemName->text();
+    QString q = "SELECT * FROM menu WHERE menuItem =\"" + menuItem + "\" AND restName =\"" + restName + "\";";
+    query.exec(q);
+    if (query.next()) {
+       QMessageBox messageBox;
+       messageBox.critical(0,"Duplicate Menu Item","Menu Item already exists!");
+       messageBox.setFixedSize(500,200);
+       return;
+    }
+
+    if (menuItem == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Addition","Please Input an Item Name!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QString menuPrice = ui->lineEditItemPrice->text();
+    QRegularExpression re("^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$");
+    QRegularExpressionMatch match = re.match(menuPrice);
+    if (!match.hasMatch()) {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Price","Please Input a Valid Price!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    query.exec("INSERT INTO menu (restName, menuItem, menuPrice) VALUES (\"" + restName + "\", \"" + menuItem + "\", \"" + menuPrice + "\");");
+    menuItem = "";
+    menuTableViewUpdate();
+}
+
+void DebugMenu::on_removeButton_clicked() {
+    if (menuItem == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Deletion","Please Select a Menu Item!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QSqlQuery query;
+    QString q = "DELETE FROM menu WHERE menuItem =\"" + menuItem + "\" AND restName =\"" + restName + "\";";
+    query.exec(q);
+    query.next();
+    ui->lineEditItemName->setText("");
+    ui->lineEditItemPrice->setText("");
+    menuItem = "";
+    menuTableViewUpdate();
+}
+
+void DebugMenu::on_importFile_triggered() {
+    QString filename = QFileDialog::getOpenFileName(this, "Select Import File");
+    fileName = filename.toStdString();
+    QFile file(filename);
+
+    if (!file.open(QIODevice::ReadOnly | QFile::Text)) {
+        QMessageBox::warning(this, "Warning", "Cannot import file: " + file.errorString());
+        return;
+    }
+    database.import(fileName);
+    restTableViewUpdate();
+}
+
+void DebugMenu::on_actionLogout_triggered() {
+    MainWindow* mainWindow = new MainWindow(this);
+    mainWindow->show();
+    hide();
     delete ui;
 }
-
-// helper function - takes in a name/di
-string getRestName(string longString)
-{
-    int index = 0;
-    bool foundInt = false;
-
-    while (index < longString.length() && foundInt == false)
-    {
-        if(isdigit(longString[index]))
-        {
-            foundInt = true;
-        }
-        index++;
-    }
-
-    longString.resize(index - 4);
-    return longString;
-}
-
-// This romoves the currently selected resturant from the list
-// Crashes if no resturant is selected - add an exception throw or error check
-void debugMenu::on_removeFromList_clicked()
-{
-   QSqlQuery query;
-   std::string firstWord;
-   QListWidgetItem *it = ui->resturantList->takeItem(mnSelected);
-   string removeName = it->text().toStdString();
-
-   // returns the resturant name by cutting the string
-   firstWord = getRestName(removeName);
-
-   // Uses a SQL statement to remove the chosen resturant fromt he list
-   string c = "DELETE FROM restaurant WHERE restName=\"" + firstWord + "\";";
-   QString q = QString::fromStdString(c);
-   query.exec(q);
-
-   // list is printed then cleared
-   ui->resturantList->clear();
-   printDistance(isSorted, ui->resturantList);
-}
-
-void debugMenu::on_resturantList_currentRowChanged(int currentRow)
-{
-    // assignes current slected list row
-    mnSelected = currentRow;
-}
-
-
-// Button that adds a resturant the SQL database
-// NEED to add duplicate name check!!!
-void debugMenu::on_addToList_clicked()
-{
-    QString q;
-    string s;
-    string inputName = ui->inputResturantName->text().toStdString();
-    string inputDist = ui->inputResturantDist->text().toStdString();
-
-    // if the text box is empty button will not work
-    if(inputName == "" || inputName == "")
-        return;
-
-
-    int sqlListSize = 0;
-    std::string menuItem[10];
-    std::string menuPrice[10];
-    std::string restNum = "0";
-    QSqlQuery query;
-
-    query.exec("SELECT COUNT(N) FROM restaurant;");
-    if (query.next()) {
-        sqlListSize = query.value(0).toInt();
-    }
-
-//    s = "INSERT INTO restaurant (restName, restNum, d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, menuSize) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + d[0] + "\", \"" + d[1] + "\", \"" + d[2] + "\", \"" + d[3] + "\", \"" + d[4] + "\", \"" + d[5] + "\", \"" + d[6] + "\", \"" + d[7] + "\", \"" + d[8] + "\", \"" + d[9] + "\", \"" + d[10] + "\", \"" + std::to_string(menuSize) + "\");";
-    s = "INSERT INTO restaurant (restName, restNum, d0) VALUES (\"" + inputName + "\", \"" + to_string(sqlListSize + 1) + "\", \"" + inputDist + "\");";
-    q = QString::fromStdString(s);
-    if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
-
-    ui->resturantList->clear();
-    printDistance(isSorted, ui->resturantList);
-}
-
-
-void debugMenu::on_sortByDistToggle_toggled(bool checked)
-{
-    isSorted = checked;
-
-    ui->resturantList->clear();
-    printDistance(isSorted, ui->resturantList);
-}
-

@@ -2,42 +2,42 @@
 #define DEBUGMENU_H
 
 #include <QMainWindow>
-#include <QTextEdit>
-#include "mainwindow.h"
-#include<QDebug>
+#include <QMessageBox>
+#include <QFileDialog>
+#include "database.h"
 
+using namespace std;
 
-
-namespace Ui {
-class debugMenu;
-}
-
-class debugMenu : public MainWindow
-{
+namespace Ui { class debugMenu; }
+class DebugMenu : public QMainWindow {
     Q_OBJECT
 
 public:
-    // default constructor
-    explicit debugMenu(QWidget *parent = nullptr);
+    explicit DebugMenu(QWidget *parent = nullptr);
+    ~DebugMenu();
 
-    //destructor
-    ~debugMenu();
+signals:
+    void sendMessage(const QString &msg);
 
 private slots:
-    void on_removeFromList_clicked();
-
-    void on_resturantList_currentRowChanged(int currentRow);
-
-    void on_addToList_clicked();
-
-    void on_sortByDistToggle_toggled(bool checked);
+    void on_rest_tableView_clicked(const QModelIndex &index);
+    void on_menu_tableView_clicked(const QModelIndex &index);
+    void on_editButton_clicked();
+    void on_addButton_clicked();
+    void on_removeButton_clicked();
+    void on_importFile_triggered();
+    void on_actionLogout_triggered();
+    void restTableViewUpdate();
+    void menuTableViewUpdate();
 
 private:
     Ui::debugMenu *ui;
-
-    int mnSelected = -1;
-    QIcon resturantImage = QIcon(":/rec/resources/resturantImage1.png");
-    bool isSorted = false;
+    QSqlQueryModel* restModel;
+    QSqlQueryModel* menuModel;
+    string fileName;
+    QString restName;
+    QString menuItem;
+    Database database;
 };
 
 #endif // DEBUGMENU_H
