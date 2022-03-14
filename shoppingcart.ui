@@ -17,12 +17,15 @@
    <iconset resource="UIGraphics.qrc">
     <normaloff>:/rec/resources/SE_logo_mini.png</normaloff>:/rec/resources/SE_logo_mini.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>30</y>
+      <y>40</y>
       <width>261</width>
       <height>101</height>
      </rect>
@@ -41,9 +44,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>80</y>
-      <width>521</width>
-      <height>381</height>
+      <y>110</y>
+      <width>440</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -56,9 +59,9 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>340</y>
-       <width>441</width>
-       <height>41</height>
+       <y>310</y>
+       <width>440</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -93,6 +96,60 @@ color: rgb(159, 11, 25);</string>
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(159, 11, 25);</string>
+        </property>
+        <property name="text">
+         <string>Remove</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+selection-background-color: rgb(159, 11, 25);
+selection-color: rgb(0, 0, 0);
+selection-background-color: rgb(225, 225, 225);
+</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="pushButton">
         <property name="font">
          <font>
@@ -106,7 +163,7 @@ color: rgb(159, 11, 25);</string>
 color: rgb(159, 11, 25);</string>
         </property>
         <property name="text">
-         <string>Update Cart</string>
+         <string>Save Changes</string>
         </property>
         <property name="autoDefault">
          <bool>true</bool>
@@ -124,7 +181,7 @@ color: rgb(159, 11, 25);</string>
        <x>0</x>
        <y>0</y>
        <width>440</width>
-       <height>341</height>
+       <height>311</height>
       </rect>
      </property>
      <property name="sizePolicy">
@@ -218,9 +275,9 @@ selection-color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>30</y>
-      <width>471</width>
-      <height>51</height>
+      <y>60</y>
+      <width>441</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -234,8 +291,8 @@ selection-color: rgb(0, 0, 0);</string>
       <rect>
        <x>0</x>
        <y>5</y>
-       <width>471</width>
-       <height>41</height>
+       <width>441</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -353,7 +410,7 @@ selection-background-color: rgb(225, 225, 225);
       <x>590</x>
       <y>310</y>
       <width>261</width>
-      <height>151</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -384,169 +441,12 @@ color: rgb(0, 0, 0);</string>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
      </property>
-     <widget class="QFrame" name="frame_8">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>241</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::HLine</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QFrame" name="frame_9">
-         <property name="styleSheet">
-          <string notr="true">background: none;</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <widget class="QLabel" name="totalAmount_2">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>0</y>
-            <width>41</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 0, 0);
-background: none;</string>
-          </property>
-          <property name="text">
-           <string>0.00</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_4">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>0</y>
-            <width>171</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>35</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>11</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 0, 0);
-background: none;</string>
-          </property>
-          <property name="text">
-           <string>Subtotal:   $</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-         <widget class="QLabel" name="totalAmount_3">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>20</y>
-            <width>41</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 0, 0);
-background: none;</string>
-          </property>
-          <property name="text">
-           <string>0.00</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_5">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>20</y>
-            <width>171</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>35</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>11</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 0, 0);
-background: none;</string>
-          </property>
-          <property name="text">
-           <string>Tax:   $</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
     </widget>
     <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>110</y>
+       <y>120</y>
        <width>241</width>
        <height>30</height>
       </rect>
@@ -585,8 +485,8 @@ color: rgb(159, 11, 25);</string>
     <widget class="QLabel" name="totalAmount">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>70</y>
+       <x>170</x>
+       <y>80</y>
        <width>71</width>
        <height>31</height>
       </rect>
@@ -613,8 +513,8 @@ color: rgb(159, 11, 25);</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>70</y>
+       <x>20</x>
+       <y>80</y>
        <width>141</width>
        <height>31</height>
       </rect>
@@ -641,6 +541,214 @@ color: rgb(159, 11, 25);</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>241</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::HLine</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QFrame" name="frame_9">
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <widget class="QLabel" name="totalAmount_2">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>0</y>
+           <width>41</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Bahnschrift</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background: none;</string>
+         </property>
+         <property name="text">
+          <string>0.00</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>0</y>
+           <width>171</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Bahnschrift</family>
+           <pointsize>11</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background: none;</string>
+         </property>
+         <property name="text">
+          <string>Subtotal:   $</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="totalAmount_3">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>20</y>
+           <width>41</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Bahnschrift</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background: none;</string>
+         </property>
+         <property name="text">
+          <string>0.00</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>171</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Bahnschrift</family>
+           <pointsize>11</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background: none;</string>
+         </property>
+         <property name="text">
+          <string>Tax:   $</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_10">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+       <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Return</string>
+     </property>
+     <property name="icon">
+      <iconset resource="UIGraphics.qrc">
+       <normaloff>:/rec/resources/return-icon-removebg.png</normaloff>:/rec/resources/return-icon-removebg.png</iconset>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+     <property name="default">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>

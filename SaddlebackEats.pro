@@ -28,6 +28,7 @@ HEADERS += \
     debugmenu.h
 
 FORMS += \
+    customtrip.ui \
     debugmenu.ui \
     login.ui \
     mainwindow.ui \
@@ -57,5 +58,6 @@ DISTFILES += \
     resources/plusSign.png \
     resources/removeSign.png \
     resources/resturantImage1.png \
+    resources/return-icon-removebg.png \
     resources/shopping-cart-icon-SE-color-removebg.png \
     resources/shopping-cart-icon-removebg.png
