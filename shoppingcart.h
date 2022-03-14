@@ -17,9 +17,14 @@ public:
 private slots:
     void cartTableViewUpdate();
     void calculateTotal();
+    void RecursiveSort(QString restName);
+    void getDistances(QString restName);
 
 private:
     Ui::ShoppingCart *ui;
     QSqlQueryModel* cartModel;
+    vector<QString> vec;
+    vector <double> distAr;
+
 };
 #endif // SHOPPINGCART_H
