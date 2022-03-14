@@ -28,6 +28,7 @@ private slots:
 
     void on_updateButton_clicked();
 
+    void on_checkoutButton_clicked();
 private:
     Ui::ShoppingCart *ui;
     QSqlQueryModel* cartModel;

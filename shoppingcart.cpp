@@ -64,13 +64,16 @@ void ShoppingCart::on_cartTableView_clicked(const QModelIndex &index) {
     menuItem = index.siblingAtColumn(1).data().toString();
 }
 
-
+void ShoppingCart::on_checkoutButton_clicked()
+{
+    QString q= "CREATE TABLE sort SELECT * FROM cart;";
+}
 
 // returns array of distances of passed in rest name
 void ShoppingCart::getDistances(QString restName)
     {
         int key = 0;
-        QString q = "SELECT restName, restNum FROM cart;";
+        QString q = "SELECT restName, restNum FROM sort;";
         QSqlQuery query;
         query.exec(q);
         while(query.next())
@@ -83,7 +86,7 @@ void ShoppingCart::getDistances(QString restName)
         int count = 0;
         string strkey = "d" + std::to_string(key);
         QString distIterator = QString::fromStdString(strkey);
-        QString d = "SELECT " + distIterator + "FROM cart;";
+        QString d = "SELECT " + distIterator + "FROM sort;";
         query.exec(d);
 
         while(query.next())
@@ -95,7 +98,7 @@ void ShoppingCart::getDistances(QString restName)
 // best trip formula
 void ShoppingCart::RecursiveSort(QString restName)
   {
-  QString q = "SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10 FROM cart WHERE restName = '" + restName + "';";  // get distances for specific restaurant
+  QString q = "SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10 FROM sort WHERE restName = '" + restName + "';";  // get distances for specific restaurant
   QSqlQuery query;
   int key = 0;
   string strkey;
@@ -113,7 +116,7 @@ void ShoppingCart::RecursiveSort(QString restName)
   QString d;
   getDistances(restName);                       // creates a vector of the distances to all other restaurants from initial restaurant
   float index = 0.01;
-  d = "SELECT * FROM cart";
+  d = "SELECT * FROM sort";
   query.exec(d);
   while(query.next())
   {
@@ -127,10 +130,10 @@ void ShoppingCart::RecursiveSort(QString restName)
   string strtemp = std::to_string(temp);
   QString qkey = QString::fromStdString(strkey);
   QString qtemp = QString::fromStdString(strtemp);
-  rest = "SELECT restName FROM cart WHERE d" + qkey + " = " + qtemp + ";";  // finds restaurant key of the closest restaurant
+  rest = "SELECT restName FROM sort WHERE d" + qkey + " = " + qtemp + ";";  // finds restaurant key of the closest restaurant
   vec[i] = rest;                                                            // inserts it into vector
-  d = "DELETE " + rest + "FROM cart;";                                      // deletes starting restaurant so it cannot repeat
-  QString l = "SELECT * FROM cart;";                                        // selects all values from cart to make sure there are still more restaurants left
+  d = "DELETE " + rest + "FROM sort;";                                      // deletes starting restaurant so it cannot repeat
+  QString l = "SELECT * FROM sort;";                                        // selects all values from cart to make sure there are still more restaurants left
   query.exec(l);
   if(query.next())
   {
