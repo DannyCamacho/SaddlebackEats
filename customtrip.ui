@@ -44,7 +44,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -63,12 +62,11 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Mileage:</string>
+      <string>Total Distance:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -85,7 +83,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -107,7 +104,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -148,7 +144,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -222,7 +217,6 @@ selection-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -297,9 +291,12 @@ selection-color: rgb(0, 0, 0);
        <widget class="QPushButton" name="pushButton_9">
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>11</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(159, 11, 25);</string>
         </property>
         <property name="text">
          <string>Add</string>
@@ -328,9 +325,12 @@ selection-color: rgb(0, 0, 0);
        <widget class="QPushButton" name="pushButton_10">
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>11</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(159, 11, 25);</string>
         </property>
         <property name="text">
          <string>Remove</string>
@@ -350,12 +350,15 @@ selection-color: rgb(0, 0, 0);
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>10</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(159, 11, 25);</string>
      </property>
      <property name="text">
       <string>          Choose Starting Restaurant</string>
@@ -402,9 +405,12 @@ selection-color: rgb(0, 0, 0);
       </property>
       <property name="font">
        <font>
-        <family>Bahnschrift</family>
         <pointsize>10</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>*Please choose from drop menu*</string>
@@ -427,9 +433,12 @@ selection-color: rgb(0, 0, 0);
       </property>
       <property name="font">
        <font>
-        <family>Bahnschrift</family>
         <pointsize>10</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Starting at: </string>
@@ -485,7 +494,6 @@ selection-color: rgb(0, 0, 0);
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -511,7 +519,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -538,7 +545,6 @@ color: rgb(0, 0, 0);</string>
     </property>
     <property name="font">
      <font>
-      <family>Bahnschrift</family>
       <pointsize>11</pointsize>
      </font>
     </property>
@@ -555,6 +561,16 @@ color: rgb(0, 0, 0);</string>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="pushButton">
+       <property name="font">
+        <font>
+         <family>Bahnschrift</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(159, 11, 25);</string>
+       </property>
        <property name="text">
         <string>Print</string>
        </property>
@@ -562,6 +578,16 @@ color: rgb(0, 0, 0);</string>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_2">
+       <property name="font">
+        <font>
+         <family>Bahnschrift</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(159, 11, 25);</string>
+       </property>
        <property name="text">
         <string>Go</string>
        </property>
@@ -576,7 +602,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
