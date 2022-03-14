@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "database.h"
+#include <vector>
 
 using namespace std;
 
@@ -21,5 +22,9 @@ private slots:
 private:
     Ui::ShoppingCart *ui;
     QSqlQueryModel* cartModel;
+    void getDistances(QString restName);
+    void RecursiveSort(QString restName);
+    vector<QString> v;
+    vector <double> distAr;
 };
 #endif // SHOPPINGCART_H
