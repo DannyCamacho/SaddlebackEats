@@ -29,8 +29,12 @@ private slots:
 private:
     Ui::shoppingCart *ui;
     void mainClicked(); //This function is used when 'add item' in MainWindow is clicked
+    void RecursiveSort(QString restName);
     void enlist(QListWidgetItem *newLine, QListWidget *list);
     void resetTrip(); //Receipts are only displayed for each trip only
+    void getDistances(QString restName);
+    vector<QString> vec;
+    vector <double> distAr;
 
 
 
