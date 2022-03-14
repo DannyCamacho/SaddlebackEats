@@ -28,6 +28,8 @@ private slots:
 
     void on_updateButton_clicked();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::ShoppingCart *ui;
     QSqlQueryModel* cartModel;

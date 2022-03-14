@@ -27,6 +27,9 @@ void MainWindow::restTableViewUpdate(int arg1) {
     QString sort = arg1 ? "d0" : "restName";
     restModel->setQuery("SELECT restName, d0 FROM restaurant ORDER BY " + sort);
     ui->rest_tableView->setModel(restModel);
+    QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT quantity as TOTAL FROM cart) X;");
+    if (query.next()) ui->cartQuantity->setText(query.value(0).toString());
+    if (ui->cartQuantity->text() == "") ui->cartQuantity->setText("0");
 }
 
 void MainWindow::on_checkBox_stateChanged(int arg1) {
@@ -66,4 +69,6 @@ void MainWindow::on_menu_tableView_clicked(const QModelIndex &index) {
 void MainWindow::on_cartButton_clicked() {
     shoppingCart = new ShoppingCart(this);
     shoppingCart->show();
+    hide();
+    delete ui;
 }

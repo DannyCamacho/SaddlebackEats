@@ -22,6 +22,7 @@ void ShoppingCart::cartTableViewUpdate() {
 void ShoppingCart::calculateTotal() {
     QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT menuPrice * quantity as TOTAL FROM cart) X;");
     if (query.next()) ui->totalAmount->setText(query.value(0).toString());
+        if (ui->totalAmount->text() == "") ui->totalAmount->setText("0.00");
 }
 
 void ShoppingCart::on_emptyButton_clicked() {
@@ -137,3 +138,12 @@ void ShoppingCart::RecursiveSort(QString restName)
   RecursiveSort (rest);                                                     // if there are more restaurants left to visit, we find the next closest
   }
   }
+
+void ShoppingCart::on_pushButton_6_clicked()
+{
+    MainWindow* mainWindow = new MainWindow(this);
+    mainWindow->show();
+    hide();
+    delete ui;
+}
+
