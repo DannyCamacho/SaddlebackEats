@@ -81,7 +81,6 @@ void ShoppingCart::getDistances(QString restName)
             }
         }
         int count = 0;
-        vector<double> distAr; //array declared as static[5]; //array declared as static
         string strkey = "d" + std::to_string(key);
         QString distIterator = QString::fromStdString(strkey);
         QString d = "SELECT " + distIterator + "FROM cart;";
@@ -96,7 +95,7 @@ void ShoppingCart::getDistances(QString restName)
 // best trip formula
 void ShoppingCart::RecursiveSort(QString restName)
   {
-  QString q = "SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10 FROM cart WHERE restName = '" + restName + "';";
+  QString q = "SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10 FROM cart WHERE restName = '" + restName + "';";  // get distances for specific restaurant
   QSqlQuery query;
   int key = 0;
   string strkey;
@@ -105,22 +104,22 @@ void ShoppingCart::RecursiveSort(QString restName)
   {
       if(query.value(i).toFloat() == 0.00)
       {
-          key = i;
+          key = i;                              // key is the number restaurant it is in the table
       }
   }
   int i = 0;
   float temp;
   QString rest;
   QString d;
-  getDistances(restName);
+  getDistances(restName);                       // creates a vector of the distances to all other restaurants from initial restaurant
   float index = 0.01;
   d = "SELECT * FROM cart";
   query.exec(d);
   while(query.next())
   {
-  if(index > distAr[i] && distAr[i] != 0.00)
+  if(index > distAr[i] && distAr[i] != 0.00)       // finds the closest restaurant that is not the same restaurant
   {
-  temp = distAr[i];
+  temp = distAr[i];                                 // temp equals the closest restaurant
   }
   i++;
   }
@@ -128,13 +127,13 @@ void ShoppingCart::RecursiveSort(QString restName)
   string strtemp = std::to_string(temp);
   QString qkey = QString::fromStdString(strkey);
   QString qtemp = QString::fromStdString(strtemp);
-  rest = "SELECT restName FROM cart WHERE d" + qkey + " = " + qtemp + ";";
-  vec[i] = rest;
-  d = "DELETE " + rest + "FROM cart;";
-  QString l = "SELECT * FROM cart;";
+  rest = "SELECT restName FROM cart WHERE d" + qkey + " = " + qtemp + ";";  // finds restaurant key of the closest restaurant
+  vec[i] = rest;                                                            // inserts it into vector
+  d = "DELETE " + rest + "FROM cart;";                                      // deletes starting restaurant so it cannot repeat
+  QString l = "SELECT * FROM cart;";                                        // selects all values from cart to make sure there are still more restaurants left
   query.exec(l);
   if(query.next())
   {
-  RecursiveSort (rest);
+  RecursiveSort (rest);                                                     // if there are more restaurants left to visit, we find the next closest
   }
   }
