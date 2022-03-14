@@ -72,7 +72,7 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="emptyButton">
         <property name="font">
          <font>
           <family>Segoe UI Semibold</family>
@@ -96,7 +96,7 @@ color: rgb(159, 11, 25);</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="removeButton">
         <property name="font">
          <font>
           <family>Segoe UI Semibold</family>
@@ -144,7 +144,7 @@ selection-background-color: rgb(225, 225, 225);
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="updateButton">
         <property name="font">
          <font>
           <family>Segoe UI Semibold</family>
@@ -157,7 +157,7 @@ selection-background-color: rgb(225, 225, 225);
 color: rgb(159, 11, 25);</string>
         </property>
         <property name="text">
-         <string>Update Cart</string>
+         <string>Update Quantity</string>
         </property>
         <property name="autoDefault">
          <bool>true</bool>

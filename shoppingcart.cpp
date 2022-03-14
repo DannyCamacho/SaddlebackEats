@@ -23,6 +23,49 @@ void ShoppingCart::calculateTotal() {
     QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT menuPrice * quantity as TOTAL FROM cart) X;");
     if (query.next()) ui->totalAmount->setText(query.value(0).toString());
 }
+
+void ShoppingCart::on_emptyButton_clicked() {
+    QSqlQuery query("DROP TABLE cart;");
+    menuItem = restName = "";
+    ui->totalAmount->setText("0.00");
+    QSqlQuery cart("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
+    cartTableViewUpdate();
+}
+
+void ShoppingCart::on_removeButton_clicked()
+{
+    if (menuItem == "" || restName == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Deletion","Please Select a Menu Item!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QSqlQuery query("DELETE FROM cart WHERE menuItem =\"" + menuItem + "\" AND restName =\"" + restName + "\";");
+    menuItem = restName = "";
+    cartTableViewUpdate();
+}
+
+void ShoppingCart::on_updateButton_clicked() {
+    if (menuItem == "" || restName == "") {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Invalid Update Quantity","Please Select a Menu Item!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
+
+    QSqlQuery query("UPDATE cart SET quantity =\"" + ui->spinBox->text() + "\" WHERE restName =\"" + restName + "\" AND menuItem = \"" + menuItem + "\";");
+    if (ui->spinBox->text().toInt() == 0) on_removeButton_clicked();
+    else { menuItem = restName = ""; cartTableViewUpdate(); }
+}
+
+void ShoppingCart::on_cartTableView_clicked(const QModelIndex &index) {
+    restName = index.siblingAtColumn(0).data().toString();
+    menuItem = index.siblingAtColumn(1).data().toString();
+}
+
+
+
 // returns array of distances of passed in rest name
 void ShoppingCart::getDistances(QString restName)
     {
