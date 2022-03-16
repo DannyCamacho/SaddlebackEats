@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "database.h"
+#include <queue>
 
 using namespace std;
 
@@ -36,6 +37,9 @@ private:
     QString menuItem;
     vector<QString> vec;
     vector <double> distAr;
+    float totalDist;
+    queue <QString> customAr;
+    bool customTrip;
 
 };
 #endif // SHOPPINGCART_H

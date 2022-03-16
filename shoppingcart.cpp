@@ -6,6 +6,7 @@ ShoppingCart::ShoppingCart(QWidget *parent): ui(new Ui::ShoppingCart) {
     ui->setupUi(this);
     cartModel = new QSqlQueryModel;
     cartTableViewUpdate();
+    totalDist = 0;
 };
 
 ShoppingCart::~ShoppingCart() {
@@ -98,10 +99,13 @@ void ShoppingCart::getDistances(QString restName)
 // best trip formula
 void ShoppingCart::RecursiveSort(QString restName)
   {
-  QString q = "SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10 FROM sort WHERE restName = '" + restName + "';";  // get distances for specific restaurant
+  QString q = "SELECT d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10 FROM restaurant WHERE restName = '" + restName + "';";  // get distances for specific restaurant
   QSqlQuery query;
   int key = 0;
   string strkey;
+  float temp;
+  QString rest;
+  QString d;
   query.exec(q);
   for(int i = 0; i< 12; i++)
   {
@@ -111,9 +115,6 @@ void ShoppingCart::RecursiveSort(QString restName)
       }
   }
   int i = 0;
-  float temp;
-  QString rest;
-  QString d;
   getDistances(restName);                       // creates a vector of the distances to all other restaurants from initial restaurant
   float index = 0.01;
   d = "SELECT * FROM sort";
@@ -126,6 +127,7 @@ void ShoppingCart::RecursiveSort(QString restName)
   }
   i++;
   }
+  totalDist += temp;
   strkey = std::to_string(key);
   string strtemp = std::to_string(temp);
   QString qkey = QString::fromStdString(strkey);
