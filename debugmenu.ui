@@ -11,12 +11,10 @@
    </rect>
   </property>
   <property name="font">
-   <font>
-    <family>Bahnschrift</family>
-   </font>
+   <font/>
   </property>
   <property name="windowTitle">
-   <string>Administrative Debug Menu</string>
+   <string>Administrative Menu</string>
   </property>
   <property name="windowIcon">
    <iconset resource="UIGraphics.qrc">
@@ -84,9 +82,11 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
@@ -155,9 +155,11 @@ selection-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
@@ -234,7 +236,6 @@ selection-color: rgb(0, 0, 0);
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -260,7 +261,6 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Bahnschrift</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -315,7 +315,6 @@ color: rgb(0, 0, 0);</string>
         </property>
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>12</pointsize>
          </font>
         </property>
@@ -344,7 +343,6 @@ selection-color: rgb(0, 0, 0);</string>
         </property>
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -370,7 +368,6 @@ selection-background-color: rgb(225, 225, 225);
         </property>
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>12</pointsize>
          </font>
         </property>
@@ -399,7 +396,6 @@ selection-color: rgb(0, 0, 0);</string>
         </property>
         <property name="font">
          <font>
-          <family>Bahnschrift</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -425,9 +421,7 @@ selection-background-color: rgb(225, 225, 225);
         </property>
         <property name="font">
          <font>
-          <family>Segoe UI Semibold</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -462,9 +456,7 @@ color: rgb(159, 11, 25);</string>
         </property>
         <property name="font">
          <font>
-          <family>Segoe UI Semibold</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -493,9 +485,7 @@ color: rgb(159, 11, 25);</string>
         </property>
         <property name="font">
          <font>
-          <family>Segoe UI Semibold</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -518,12 +508,11 @@ color: rgb(159, 11, 25);</string>
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>28</height>
+     <height>24</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -534,7 +523,6 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QMenu" name="menuFile">
     <property name="font">
      <font>
-      <family>Bahnschrift</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -559,7 +547,6 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -570,7 +557,6 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -581,7 +567,6 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -592,7 +577,6 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>
