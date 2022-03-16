@@ -31,13 +31,13 @@ private slots:
     void menuTableViewUpdate();
 
 private:
-    Ui::debugMenu *ui;
-    QSqlQueryModel* restModel;
-    QSqlQueryModel* menuModel;
-    string fileName;
-    QString restName;
-    QString menuItem;
-    Database database;
+    Ui::debugMenu *ui;         /**< debugMenu's ui*/
+    QSqlQueryModel* restModel; /**< Holds values for SQL's restaurant*/
+    QSqlQueryModel* menuModel; /**< Holds values for SQL's menu*/
+    string fileName;           /**< string for the filename*/
+    QString restName;          /**< QString for restaurant name*/
+    QString menuItem;          /**< QString for menu item name*/
+    Database database;         /**< Database for SQL*/
 };
 
 #endif // DEBUGMENU_H

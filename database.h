@@ -19,7 +19,7 @@ public:
 private:
     void connect();
     void init();
-    static bool isInitialized;
+    static bool isInitialized; /**< True if initialized, false if otherwise*/
 };
 
 #endif // DATABASE_H

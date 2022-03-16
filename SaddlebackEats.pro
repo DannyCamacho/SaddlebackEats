@@ -32,7 +32,6 @@ FORMS += \
     debugmenu.ui \
     login.ui \
     mainwindow.ui \
-    receipt.ui \
     shoppingcart.ui
     debugmenu.ui
 

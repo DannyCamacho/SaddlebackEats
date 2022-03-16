@@ -21,7 +21,7 @@ private slots:
     void on_pushButtonCancel_clicked();
 
 private:
-    Ui::Login *ui;
+    Ui::Login *ui; /**< Login's ui*/
 };
 
 #endif // LOGIN_H

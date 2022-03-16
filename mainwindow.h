@@ -13,6 +13,11 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+
+/*! \class MainWindow
+ *  \brief Manages all other classes
+ *  DESCRIPTION GOES HERE
+ */
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
@@ -32,16 +37,16 @@ private slots:
     void restTableViewUpdate(int arg1);
 
 private:
-    Ui::MainWindow *ui;
-    Login* login;
-    DebugMenu* debugMenu;
-    ShoppingCart* shoppingCart;
-    Database database;
-    QSqlQueryModel* restModel;
-    QSqlQueryModel* menuModel;
-    QString restName;
-    QString menuItem;
-    QString menuPrice;
-    string fileName;
+    Ui::MainWindow *ui;         /**< MainWindow's ui*/
+    Login* login;               /**< Instance of Login.h*/
+    DebugMenu* debugMenu;       /**< Instance of debugMenu.h*/
+    ShoppingCart* shoppingCart; /**< Instance of ShoppingCart.h*/
+    Database database;          /**< Database for SQL*/
+    QSqlQueryModel* restModel;  /**< Holds values for SQL's restaurant*/
+    QSqlQueryModel* menuModel;  /**< Holds values for SQL's menu*/
+    QString restName;           /**< QString for restaurant name*/
+    QString menuItem;           /**< QString for menu item name*/
+    QString menuPrice;          /**< QString for menu item price*/
+    string fileName;            /**< string for the filename*/
 };
 #endif // MAINWINDOW_H

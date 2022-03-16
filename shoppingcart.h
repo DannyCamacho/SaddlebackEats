@@ -7,6 +7,11 @@
 using namespace std;
 
 namespace Ui { class ShoppingCart; }
+
+/*! \class ShoppingCart
+ *  \brief Manages the sales of menu items
+ *  DESCRIPTION GOES HERE
+ */
 class ShoppingCart : public QMainWindow {
     Q_OBJECT
 
@@ -31,12 +36,12 @@ private slots:
     void on_pushButton_6_clicked();
 
 private:
-    Ui::ShoppingCart *ui;
-    QSqlQueryModel* cartModel;
-    QString restName;
-    QString menuItem;
-    vector<QString> vec;
-    vector <double> distAr;
+    Ui::ShoppingCart *ui;      /**< ShoppingCart's ui*/
+    QSqlQueryModel* cartModel; /**< Holds values for SQL's cart*/
+    QString restName;          /**< QString for restaurant name*/
+    QString menuItem;          /**< QString for menu item name*/
+    vector<QString> vec;       /**< Vector for Restaurant Names*/
+    vector <double> distAr;    /**< Vector for distances*/
 
 };
 #endif // SHOPPINGCART_H

@@ -17,6 +17,6 @@ public:
 private slots:
 
 private:
-    Ui::CustomTrip *ui;
+    Ui::CustomTrip *ui; /**< customtrip's ui*/
 };
 #endif // CUSTOMTRIP_H
