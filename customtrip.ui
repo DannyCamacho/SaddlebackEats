@@ -563,7 +563,6 @@ color: rgb(0, 0, 0);</string>
       <widget class="QPushButton" name="pushButton">
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>14</pointsize>
         </font>
        </property>
@@ -580,7 +579,6 @@ color: rgb(159, 11, 25);</string>
       <widget class="QPushButton" name="pushButton_2">
        <property name="font">
         <font>
-         <family>Bahnschrift</family>
          <pointsize>14</pointsize>
         </font>
        </property>
