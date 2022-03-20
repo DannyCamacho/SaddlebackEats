@@ -2,8 +2,8 @@
 #define SHOPPINGCART_H
 
 #include <QMainWindow>
-#include "database.h"
 #include <vector>
+#include "database.h"
 
 using namespace std;
 

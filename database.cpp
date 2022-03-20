@@ -30,6 +30,9 @@ void Database::init() {
 
     QSqlQuery cart("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
     if(!cart.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << cart.lastError().text();
+
+    QSqlQuery route("CREATE TABLE route (restName TEXT, routeOrder INTEGER, distToNext INTEGER);");
+    if(!route.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << route.lastError().text();
 }
 
 void Database::populate(std::string fileName) {

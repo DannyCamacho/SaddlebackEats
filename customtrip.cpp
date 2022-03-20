@@ -1,12 +1,23 @@
 #include "customtrip.h"
+#include "ui_customtrip.h"
+#include "mainwindow.h"
 
-//    bool isAvailable[20];
-//    int order[20];
-//    double d[20][20];
+CustomTrip::CustomTrip(QWidget *parent): ui(new Ui::CustomTrip) {
+    ui->setupUi(this);
+    tripModel = new QSqlQueryModel;
+    routeModel = new QSqlQueryModel;
+    initalList();
+    routeTableViewUpdate();
+};
 
-CustomTrip::CustomTrip() {
+CustomTrip::~CustomTrip() {
+    delete ui;
+    delete tripModel;
+    delete routeModel;
+}
+
+void CustomTrip::initalList() {
     for (int i = 0; i < 20; ++i) {
-        order[i] = -1;
         isAvailable[i] = true;
         for (int k = 0; k < 20; ++k) {
             d[i][k] = 0;
@@ -22,73 +33,63 @@ CustomTrip::CustomTrip() {
     }
 
     for (int i = 11; i < 20; ++i) isAvailable[i] = false;
+
+    calculateTrip(0);
 }
 
-double CustomTrip::calculateTrip(int start) {
-    order[0] = start;
+void CustomTrip::calculateTrip(int start) {
+    if (start == -1) return;
+
+    QString restName = "";
+    order.push_back(start);
     isAvailable[start] = false;
-    int sIndex = 0;
-    double sDist = 0.0;
-    double totalDistance = 0.0;
+    int idx = -1;
+    double dist = 999.9;
 
     for (int i = 0; i < 20; ++i) {
-        if (isAvailable[i]) {
-            sIndex = i;
-            totalDistance = sDist = d[i][start];
-            order[1] = i;
-            isAvailable[i] = false;
-            break;
-        }
-    }
-
-    for (int i = 0; i < 20; ++i) {
-        if (isAvailable[i]) {
-            if (d[i][start] < sDist) {
-                isAvailable[sIndex] = true;
-                order[1] = sIndex = i;
-                isAvailable[i] = false;
-                totalDistance = sDist = d[i][start];
-                totalDistance += calculateTrip(i, 2);
-                i = 0;
+        if (isAvailable[i] && d[start][i] < dist) {
+            idx = i;
+            dist = d[start][i];
             }
-        }
     }
 
-    for (int i = 0; i < 20; ++i) {
-            std::cout << order[i] << " ";
-    }
+    QSqlQuery query("SELECT restName FROM restaurant WHERE restNum =\"" + QString::number(start) + "\"");
+    query.next();
+    restName = start == 0 ? "Saddleback College" : query.value(0).toString();
+    dist = dist == 999.9 ? 0.0 : dist;
 
-    std::cout << "\n\n\n" << totalDistance;
-
-    return totalDistance;
+    query.exec("INSERT INTO route (restName, routeOrder, distToNext) VALUES (\"" + restName + "\", \"" + QString::number(order.size()) + "\", \"" + QString::number(dist) + "\");");
+    query.next();
+    calculateTrip(idx);
 }
 
-double CustomTrip::calculateTrip(int n, int o) {
-    int sIndex = 0;
-    double sDist = 0.0;
-    double totalDistance = 0.0;
-
-    for (int i = 0; i < 20; ++i) {
-        if (isAvailable[i]) {
-            sIndex = i;
-            totalDistance = sDist = d[i][n];
-            order[o] = i;
-            isAvailable[i] = false;
-            break;
-        }
-    }
-
-    for (int i = 0; i < 20; ++i) {
-        if (isAvailable[i]) {
-            if (d[i][n] < sDist) {
-                isAvailable[sIndex] = true;
-                order[o] = sIndex = i;
-                isAvailable[i] = false;
-                totalDistance = sDist = d[i][n];
-                totalDistance += calculateTrip(i, o + 1);
-                i = 0;
-            }
-        }
-    }
-    return totalDistance;
+void CustomTrip::routeTableViewUpdate() {
+    routeModel->setQuery("SELECT restName, distToNext FROM route ORDER BY routeOrder");
+    ui->routeTableView->setModel(routeModel);
 }
+
+//double CustomTrip::calculateTrip(int start) {
+//    if (start == -1) return -999.9;
+
+//    order.push_back(start);
+//    isAvailable[start] = false;
+//    int idx = -1;
+//    double dist = 999.9;
+
+//    for (int i = 0; i < 20; ++i) {
+//        if (isAvailable[i] && d[start][i] < dist) {
+//            idx = i;
+//            dist = d[start][i];
+//            }
+//    }
+//    std::cout << " = " << dist << "\n";
+//    dist += calculateTrip(idx);
+
+//    for (int i = 0; i < 10; ++i) {
+//            std::cout << order[i] << " ";
+//    }
+
+//    std::cout << "TotalDistance: " << dist << "\n";
+
+//    return dist;
+//}

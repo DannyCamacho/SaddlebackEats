@@ -16,7 +16,6 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     shoppingcart.cpp
-    debugmenu.cpp.cpp
 
 HEADERS += \
     customtrip.h \
@@ -25,7 +24,6 @@ HEADERS += \
     login.h \
     mainwindow.h \
     shoppingcart.h
-    debugmenu.h
 
 FORMS += \
     customtrip.ui \
@@ -33,7 +31,6 @@ FORMS += \
     login.ui \
     mainwindow.ui \
     shoppingcart.ui
-    debugmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

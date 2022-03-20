@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>CustomTrip</class>
+ <widget class="QMainWindow" name="CustomTrip">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -211,7 +211,7 @@ selection-color: rgb(0, 0, 0);</string>
       <bool>true</bool>
      </attribute>
     </widget>
-    <widget class="QTableView" name="menu_tableView_2">
+    <widget class="QTableView" name="routeTableView">
      <property name="geometry">
       <rect>
        <x>250</x>

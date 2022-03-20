@@ -9,8 +9,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     fileName = "../SaddlebackEats/fastfood.txt";
     database.populate(fileName);
     on_checkBox_stateChanged(0);
-    CustomTrip customtrip;
-    customtrip.calculateTrip(0);
 }
 
 MainWindow::~MainWindow() {
@@ -67,6 +65,16 @@ void MainWindow::on_menu_tableView_clicked(const QModelIndex &index) {
 }
 
 void MainWindow::on_cartButton_clicked() {
+    hide();
+    delete ui;
     shoppingCart = new ShoppingCart(this);
     shoppingCart->show();
 }
+
+void MainWindow::on_pushButton_clicked(){
+    hide();
+    delete ui;
+    customTrip = new CustomTrip(this);
+    customTrip->show();
+}
+
