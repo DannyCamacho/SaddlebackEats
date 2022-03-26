@@ -73,29 +73,18 @@ void ShoppingCart::on_cartTableView_clicked(const QModelIndex &index) {
     menuItem = index.siblingAtColumn(1).data().toString();
 }
 
-void ShoppingCart::on_pushButton_6_clicked()
-{
+void ShoppingCart::on_pushButton_6_clicked() {
     MainWindow* mainWindow = new MainWindow(this);
     mainWindow->show();
     hide();
     delete ui;
 }
 
-void ShoppingCart::on_pushButton_3_clicked()
-{
-    QSqlQuery query("DROP TABLE trip;");
-    query.exec("CREATE TABLE trip (restName TEXT, restNum INTEGER, total INTEGER);");
-    query.exec("SELECT restName, restNum FROM cart GROUP BY restName;");
-    while(query.next()) query.exec("INSERT INTO trip (restName, restNum) VALUES (\"" + query.value(0).toString() + "\", \"" + query.value(1).toString() + "\");");
-    hide();
-    delete ui;
-    customTrip = new CustomTrip(this);
-    customTrip->show();
-
+void ShoppingCart::on_pushButton_3_clicked() {
     QSqlQuery query1("DROP TABLE trip;");
-    QSqlQuery query2("CREATE TABLE trip (restName TEXT, restNum INTEGER, total INTEGER);");
-    query1.exec("SELECT DISTINCT restName, restNum FROM cart ORDER BY restNum;");
-    while(query1.next()) query2.exec("INSERT INTO trip (restName, restNum) VALUES (\"" + query1.value(0).toString() + "\", \"" + query1.value(1).toString() + "\");");
+    QSqlQuery query2("CREATE TABLE trip (restNum INTEGER);");
+    query1.exec("SELECT restNum FROM cart GROUP BY restName;");
+    while(query1.next()) query2.exec("INSERT INTO trip (restNum) VALUES (\"" + query1.value(0).toString() + "\");");
     hide();
     delete ui;
     customTrip = new CustomTrip(this);

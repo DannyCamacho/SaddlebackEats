@@ -33,8 +33,5 @@ private:
     CustomTrip* customTrip;
     QString restName;
     QString menuItem;
-    vector<QString> vec;
-    vector <double> distAr;
-
 };
 #endif // SHOPPINGCART_H

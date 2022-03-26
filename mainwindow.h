@@ -31,7 +31,6 @@ private slots:
     void on_menu_tableView_clicked(const QModelIndex &index);
     void on_cartButton_clicked();
     void restTableViewUpdate(int arg1);
-
     void on_pushButton_clicked();
 
 private:

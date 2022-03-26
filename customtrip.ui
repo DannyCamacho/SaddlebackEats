@@ -559,6 +559,16 @@ color: rgb(159, 11, 25);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QComboBox" name="restComboBox">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>150</y>
+      <width>241</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

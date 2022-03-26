@@ -50,8 +50,14 @@ void MainWindow::on_actionLogin_triggered() {
 void MainWindow::on_pushButton_4_clicked() {
     if (menuItem == "" || ui->spinBox->text().toInt() == 0) return;
     int quantity = ui->spinBox->text().toInt();
-    QString q = "INSERT INTO cart (restName, menuItem, menuPrice, quantity) VALUES (\"" + restName + "\", \"" + menuItem + "\", \"" + menuPrice + "\", \"" + QString::number(quantity) + "\");";
-    QSqlQuery query("SELECT quantity FROM cart where restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";");
+    QString restNum = "";
+
+    QSqlQuery query("SELECT restNum FROM restaurant where restName =\"" + restName + "\";");
+    if (query.next()) restNum = query.value(0).toString();
+    std::cout << restNum.toStdString();
+
+    QString q = "INSERT INTO cart (restName, restNum, menuItem, menuPrice, quantity) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + menuItem + "\", \"" + menuPrice + "\", \"" + QString::number(quantity) + "\");";
+    query.exec("SELECT quantity FROM cart where restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";");
     if (query.next()) {
         quantity += query.value(0).toInt();
         q = "UPDATE cart SET restName =\"" + restName + "\", menuItem =\"" + menuItem + "\", menuPrice =\"" + menuPrice + "\", quantity =\"" + QString::number(quantity) + "\" WHERE restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";";
@@ -74,6 +80,11 @@ void MainWindow::on_cartButton_clicked() {
 }
 
 void MainWindow::on_pushButton_clicked() { // initial list
+    QSqlQuery query1("DROP TABLE trip;");
+    QSqlQuery query2("CREATE TABLE trip (restNum INTEGER);");
+    //query2.exec("INSERT INTO trip (restNum) VALUES (0);");
+    query1.exec("SELECT restNum FROM restaurant ORDER BY restNum LIMIT 10;");
+    while(query1.next()) query2.exec("INSERT INTO trip (restNum) VALUES (\"" + query1.value(0).toString() + "\");");
     hide();
     delete ui;
     customTrip = new CustomTrip(this);

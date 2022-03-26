@@ -16,13 +16,14 @@ public:
 
 
 private slots:
-    void initalList();
+    void initializeDistances();
     void routeTableViewUpdate();
-
+    void populateComboBox();
 private:
     Ui::CustomTrip *ui;
     bool isAvailable[20];
     double d[20][20];
+    int start;
     std::vector<int> order;
     QSqlQueryModel* tripModel;
     QSqlQueryModel* routeModel;

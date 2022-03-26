@@ -4,9 +4,11 @@
 
 CustomTrip::CustomTrip(QWidget *parent): ui(new Ui::CustomTrip) {
     ui->setupUi(this);
+    start = 0;
+    populateComboBox();
     tripModel = new QSqlQueryModel;
     routeModel = new QSqlQueryModel;
-    initalList();
+    initializeDistances();
     routeTableViewUpdate();
 };
 
@@ -16,7 +18,13 @@ CustomTrip::~CustomTrip() {
     delete routeModel;
 }
 
-void CustomTrip::initalList() {
+void CustomTrip::populateComboBox() {
+    ui->restComboBox->addItem("Saddleback College");
+    QSqlQuery query("SELECT restName FROM restaurant");
+    while (query.next()) ui->restComboBox->addItem(query.value(0).toString());
+}
+
+void CustomTrip::initializeDistances() {
     for (int i = 0; i < 20; ++i) isAvailable[i] = false;
 
     int i = 1;
@@ -30,7 +38,7 @@ void CustomTrip::initalList() {
     query.exec("SELECT restNum FROM trip");
     while (query.next()) isAvailable[query.value(0).toInt()] = true;
 
-    calculateTrip(0);
+    calculateTrip(start);
 }
 
 void CustomTrip::calculateTrip(int start) {
