@@ -72,3 +72,11 @@ void MainWindow::on_cartButton_clicked() {
     hide();
     delete ui;
 }
+
+void MainWindow::on_pushButton_clicked() {
+    hide();
+    delete ui;
+    customTrip = new CustomTrip(this);
+    customTrip->show();
+}
+

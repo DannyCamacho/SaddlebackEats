@@ -22,14 +22,12 @@ void Database::connect() {
 }
 
 void Database::init() {
-    QSqlQuery restaurant("CREATE TABLE restaurant (restName TEXT, restNum INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER, d9 INTEGER, d10 INTEGER, d11 INTEGER, d12 INTEGER, d13 INTEGER, d14 INTEGER, d15 INTEGER, d16 INTEGER, d17 INTEGER, d18 INTEGER, d19 INTEGER, d20 INTEGER, menuSize TEXT);");
-    if(!restaurant.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << restaurant.lastError().text();
-
-    QSqlQuery menu("CREATE TABLE menu (restName TEXT, menuItem TEXT, menuPrice INTEGER);");
-    if(!menu.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << menu.lastError().text();
-
-    QSqlQuery cart("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
-    if(!cart.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << cart.lastError().text();
+    QSqlQuery query("CREATE TABLE restaurant (restName TEXT, restNum INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER, d9 INTEGER, d10 INTEGER, d11 INTEGER, d12 INTEGER, d13 INTEGER, d14 INTEGER, d15 INTEGER, d16 INTEGER, d17 INTEGER, d18 INTEGER, d19 INTEGER, d20 INTEGER, menuSize TEXT);");
+    if(!query.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << query.lastError().text();
+    query.exec("CREATE TABLE menu (restName TEXT, menuItem TEXT, menuPrice INTEGER);");
+    query.exec("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
+    query.exec("CREATE TABLE trip (restName TEXT, restNum INTEGER, total INTEGER);");
+    query.exec("CREATE TABLE route (restName TEXT, routeOrder INTEGER, distToNext INTEGER);");
 }
 
 void Database::populate(std::string fileName) {

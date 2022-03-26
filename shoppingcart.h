@@ -16,23 +16,18 @@ public:
 
 private slots:
     void cartTableViewUpdate();
+    void totTableViewUpdate();
     void calculateTotal();
-    void RecursiveSort(QString restName);
-    void getDistances(QString restName);
-
     void on_cartTableView_clicked(const QModelIndex &index);
-
     void on_emptyButton_clicked();
-
     void on_removeButton_clicked();
-
     void on_updateButton_clicked();
-
     void on_pushButton_6_clicked();
 
 private:
     Ui::ShoppingCart *ui;
     QSqlQueryModel* cartModel;
+    QSqlQueryModel* totModel;
     QString restName;
     QString menuItem;
     vector<QString> vec;

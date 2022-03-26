@@ -439,7 +439,7 @@ color: rgb(159, 11, 25);</string>
      <property name="frameShadow">
       <enum>QFrame::Plain</enum>
      </property>
-     <widget class="QTableView" name="tableView_2">
+     <widget class="QTableView" name="totTableView">
       <property name="geometry">
        <rect>
         <x>0</x>

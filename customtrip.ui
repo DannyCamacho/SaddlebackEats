@@ -33,7 +33,7 @@ color: rgb(0, 0, 0);</string>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="distLabel">
      <property name="geometry">
       <rect>
        <x>154</x>
@@ -88,7 +88,7 @@ color: rgb(0, 0, 0);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QTableView" name="rest_tableView_2">
+    <widget class="QTableView" name="tripTableView">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -167,7 +167,7 @@ selection-color: rgb(0, 0, 0);</string>
       <bool>true</bool>
      </attribute>
     </widget>
-    <widget class="QTableView" name="menu_tableView_2">
+    <widget class="QTableView" name="routeTableView">
      <property name="geometry">
       <rect>
        <x>250</x>

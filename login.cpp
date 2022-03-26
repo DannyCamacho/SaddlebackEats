@@ -25,3 +25,7 @@ void Login::on_pushButtonLogin_clicked() {
 void Login::on_pushButtonCancel_clicked() {
     hide();
 }
+
+void Login::on_lineEditPassword_returnPressed() {
+    on_pushButtonLogin_clicked();
+}
