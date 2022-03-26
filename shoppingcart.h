@@ -2,6 +2,7 @@
 #define SHOPPINGCART_H
 
 #include <QMainWindow>
+#include "customtrip.h"
 #include "database.h"
 
 using namespace std;
@@ -23,11 +24,13 @@ private slots:
     void on_removeButton_clicked();
     void on_updateButton_clicked();
     void on_pushButton_6_clicked();
+    void on_pushButton_3_clicked();
 
 private:
     Ui::ShoppingCart *ui;
     QSqlQueryModel* cartModel;
     QSqlQueryModel* totModel;
+    CustomTrip* customTrip;
     QString restName;
     QString menuItem;
     vector<QString> vec;

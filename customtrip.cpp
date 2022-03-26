@@ -17,6 +17,8 @@ CustomTrip::~CustomTrip() {
 }
 
 void CustomTrip::initalList() {
+    for (int i = 0; i < 20; ++i) isAvailable[i] = false;
+
     int i = 1;
     QSqlQuery query("SELECT * FROM restaurant");
     while (query.next()) {
@@ -25,7 +27,9 @@ void CustomTrip::initalList() {
         ++i;
     }
 
-    for (int i = 0; i < 11; ++i) isAvailable[i] = true;
+    query.exec("SELECT restNum FROM trip");
+    while (query.next()) isAvailable[query.value(0).toInt()] = true;
+
     calculateTrip(0);
 }
 
