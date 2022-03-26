@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>240</y>
+      <y>290</y>
       <width>241</width>
-      <height>81</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -28,7 +28,7 @@
 color: rgb(0, 0, 0);</string>
     </property>
     <property name="frameShape">
-     <enum>QFrame::HLine</enum>
+     <enum>QFrame::Box</enum>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -36,9 +36,9 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>124</x>
+       <x>154</x>
        <y>10</y>
-       <width>111</width>
+       <width>81</width>
        <height>21</height>
       </rect>
      </property>
@@ -56,7 +56,7 @@ color: rgb(0, 0, 0);</string>
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>111</width>
+       <width>141</width>
        <height>21</height>
       </rect>
      </property>
@@ -66,49 +66,10 @@ color: rgb(0, 0, 0);</string>
       </font>
      </property>
      <property name="text">
-      <string>Total Distance:</string>
+      <string>Total Distance: </string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>44</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Gas:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>124</x>
-       <y>44</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>0.00</string>
      </property>
     </widget>
    </widget>
@@ -382,69 +343,66 @@ color: rgb(159, 11, 25);</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+     </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="label_8">
+     <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>0</y>
-        <width>171</width>
-        <height>31</height>
+        <x>124</x>
+        <y>5</y>
+        <width>111</width>
+        <height>21</height>
        </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>25</height>
-       </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>10</pointsize>
+        <family>Bahnschrift</family>
+        <pointsize>11</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(225, 225, 225);
+       <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>*Please choose from drop menu*</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>71</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(225, 225, 225);
-color: rgb(0, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>Starting at: </string>
+       <string>Distance to next </string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>5</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Location</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
     </widget>
@@ -502,7 +460,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Custom Trip</string>
+      <string>Customize Trip</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -527,7 +485,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Route</string>
+      <string>Planned Route</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -600,7 +558,7 @@ color: rgb(159, 11, 25);</string>
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
