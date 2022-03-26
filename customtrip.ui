@@ -83,10 +83,10 @@ color: rgb(0, 0, 0);</string>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::Box</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QTableView" name="tripTableView">
      <property name="geometry">
@@ -192,6 +192,9 @@ selection-background-color: rgb(159, 11, 25);
 selection-color: rgb(0, 0, 0);
 </string>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
      <property name="horizontalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
@@ -226,7 +229,7 @@ selection-color: rgb(0, 0, 0);
       <number>50</number>
      </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>200</number>
+      <number>185</number>
      </attribute>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
@@ -303,10 +306,10 @@ color: rgb(159, 11, 25);</string>
     <widget class="QToolButton" name="toolButton">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>241</width>
-       <height>31</height>
+       <x>1</x>
+       <y>1</y>
+       <width>240</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="font">
@@ -344,8 +347,7 @@ color: rgb(159, 11, 25);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+      <string notr="true">background: none;</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -406,6 +408,12 @@ color: rgb(0, 0, 0);</string>
       </property>
      </widget>
     </widget>
+    <zorder>toolButton</zorder>
+    <zorder>tripTableView</zorder>
+    <zorder>routeTableView</zorder>
+    <zorder>frame_6</zorder>
+    <zorder>frame_8</zorder>
+    <zorder>frame_7</zorder>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
