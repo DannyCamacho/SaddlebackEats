@@ -495,7 +495,7 @@ selection-color: rgb(0, 0, 0);</string>
        <number>50</number>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>250</number>
+       <number>235</number>
       </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
