@@ -41,8 +41,7 @@ void ShoppingCart::on_emptyButton_clicked() {
     cartTableViewUpdate();
 }
 
-void ShoppingCart::on_removeButton_clicked()
-{
+void ShoppingCart::on_removeButton_clicked() {
     if (menuItem == "" || restName == "") {
         QMessageBox messageBox;
         messageBox.critical(0,"Invalid Deletion","Please Select a Menu Item!");
@@ -81,10 +80,10 @@ void ShoppingCart::on_pushButton_6_clicked() {
 }
 
 void ShoppingCart::on_pushButton_3_clicked() {
-    QSqlQuery query1("DROP TABLE trip;");
-    QSqlQuery query2("CREATE TABLE trip (restNum INTEGER);");
-    query1.exec("SELECT restNum FROM cart GROUP BY restName;");
-    while(query1.next()) query2.exec("INSERT INTO trip (restNum) VALUES (\"" + query1.value(0).toString() + "\");");
+    QSqlQuery query("DROP TABLE trip;");
+    query.exec("CREATE TABLE trip (restNum INTEGER);");
+    query.exec("INSERT INTO trip (restNum) SELECT restNum FROM cart;");
+
     hide();
     delete ui;
     customTrip = new CustomTrip(this);

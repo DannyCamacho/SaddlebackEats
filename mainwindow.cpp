@@ -60,7 +60,12 @@ void MainWindow::on_pushButton_4_clicked() {
     query.exec("SELECT quantity FROM cart where restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";");
     if (query.next()) {
         quantity += query.value(0).toInt();
-        if (quantity > 100) return;
+        if (quantity > 100) {
+            QMessageBox messageBox;
+            messageBox.critical(0,"Quantity Limit", "Menu item quantity cannot exceed 100");
+            messageBox.setFixedSize(500,200);
+            return;
+        }
         q = "UPDATE cart SET restName =\"" + restName + "\", menuItem =\"" + menuItem + "\", menuPrice =\"" + menuPrice + "\", quantity =\"" + QString::number(quantity) + "\" WHERE restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";";
     }
     query.exec(q);
