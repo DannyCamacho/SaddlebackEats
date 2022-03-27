@@ -498,7 +498,8 @@ color: rgb(159, 11, 25);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>11</pointsize>
+       <family>Bahnschrift</family>
+       <pointsize>12</pointsize>
        <weight>50</weight>
        <bold>false</bold>
       </font>
