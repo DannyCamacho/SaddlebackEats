@@ -158,3 +158,7 @@ void CustomTrip::on_restComboBox_currentTextChanged(const QString &arg1) {
     updateTrip();
     tableViewUpdate();
 }
+
+void CustomTrip::on_pushButton_3_clicked() {
+    on_restComboBox_currentTextChanged("Domino's Pizza");
+}
