@@ -627,7 +627,7 @@ selection-color: rgb(0, 0, 0);</string>
       <bool>false</bool>
      </attribute>
      <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>50</number>
+      <number>55</number>
      </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>200</number>
@@ -696,10 +696,10 @@ selection-color: rgb(0, 0, 0);
       <bool>false</bool>
      </attribute>
      <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>50</number>
+      <number>55</number>
      </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>200</number>
+      <number>190</number>
      </attribute>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
