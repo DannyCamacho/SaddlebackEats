@@ -19,6 +19,8 @@ private slots:
     void tableViewUpdate();
     void updateTrip();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::CustomTrip *ui;
     bool isAvailable[20];

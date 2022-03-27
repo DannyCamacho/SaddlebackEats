@@ -74,8 +74,16 @@ void CustomTrip::tableViewUpdate() {
     tripModel->setQuery("DELETE FROM trip WHERE EXISTS (SELECT restName FROM route WHERE trip.restName = route.restName);");
     tripModel->setQuery("SELECT restName FROM trip");
     ui->tripTableView->setModel(tripModel);
-
     QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT distToNext as TOTAL FROM route) X;");
     if (query.next()) ui->distLabel->setText(QString::number(query.value(0).toDouble(), 'g', 7));
     if (ui->distLabel->text() == "") ui->distLabel->setText("0.00");
+}
+
+void CustomTrip::on_pushButton_6_clicked() {
+    tripModel->setQuery("DROP TABLE route;");
+    tripModel->setQuery("CREATE TABLE route (restName TEXT, routeOrder INTEGER, distToNext INTEGER);");
+    MainWindow* mainWindow = new MainWindow(this);
+    mainWindow->show();
+    hide();
+    delete ui;
 }
