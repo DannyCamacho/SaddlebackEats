@@ -241,7 +241,7 @@ selection-color: rgb(0, 0, 0);
       <number>50</number>
      </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>200</number>
+      <number>210</number>
      </attribute>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
@@ -1079,7 +1079,7 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">background: none;</string>
     </property>
     <property name="text">
-     <string>Saddleback Eats Sponsered by: Dominos</string>
+     <string>Saddleback Eats Sponsered by: Domino's Pizza</string>
     </property>
     <property name="scaledContents">
      <bool>false</bool>
