@@ -59,7 +59,7 @@ void CustomTrip::calculateTrip(int start) {
     dist = dist == 999.9 ? 0.0 : dist;
 
     query.exec("INSERT INTO route (restName, restNum, routeOrder, distToNext) VALUES (\"" + restName + "\", \"" + QString::number(start) + "\", \"" + QString::number(order.size()) + "\", \"" + QString::number(dist) + "\");");
-    query.next();
+
     calculateTrip(idx);
 }
 
@@ -101,6 +101,7 @@ void CustomTrip::on_routeTableView_clicked(const QModelIndex &index){
 
 void CustomTrip::on_pushButton_9_clicked() { // add button
     QSqlQuery query("SELECT restName FROM trip WHERE restName =\"" + name + "\";");
+
     if (!query.next()) {
        QMessageBox messageBox;
        messageBox.critical(0,"Invalid Selection","Please Select a Valid Restaurant!");
@@ -125,6 +126,7 @@ void CustomTrip::on_pushButton_9_clicked() { // add button
 
 void CustomTrip::on_pushButton_10_clicked() { // remove button
     QSqlQuery query("SELECT restName FROM route WHERE restName =\"" + name + "\";");
+
     if (!query.next()) {
        QMessageBox messageBox;
        messageBox.critical(0,"Invalid Selection","Please Select a Valid Restaurant!");
