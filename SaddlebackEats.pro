@@ -31,7 +31,8 @@ FORMS += \
     login.ui \
     mainwindow.ui \
     receipt.ui \
-    shoppingcart.ui
+    shoppingcart.ui \
+    tripProgress.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
