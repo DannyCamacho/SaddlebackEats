@@ -5,7 +5,6 @@
 #include <QMessageBox>
 
 namespace Ui { class Login; }
-
 class Login : public QDialog {
     Q_OBJECT
 
