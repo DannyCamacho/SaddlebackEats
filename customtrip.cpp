@@ -160,5 +160,6 @@ void CustomTrip::on_restComboBox_currentTextChanged(const QString &arg1) {
 }
 
 void CustomTrip::on_pushButton_3_clicked() {
+    ui->restComboBox->setCurrentText("Domino's Pizza");
     on_restComboBox_currentTextChanged("Domino's Pizza");
 }
