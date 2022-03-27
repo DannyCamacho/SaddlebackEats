@@ -42,7 +42,6 @@ void CustomTrip::updateTrip() {
 void CustomTrip::calculateTrip(int start) {
     if (start == -1) return;
 
-    QString restName = "";
     order.push_back(start);
     isAvailable[start] = false;
     int idx = -1;
@@ -56,8 +55,7 @@ void CustomTrip::calculateTrip(int start) {
     }
 
     QSqlQuery query("SELECT restName FROM restaurant WHERE restNum =\"" + QString::number(start) + "\"");
-    query.next();
-    restName = start == 0 ? "Saddleback College" : query.value(0).toString();
+    QString restName = query.next() ? query.value(0).toString() : "Saddleback College";
     dist = dist == 999.9 ? 0.0 : dist;
 
     query.exec("INSERT INTO route (restName, restNum, routeOrder, distToNext) VALUES (\"" + restName + "\", \"" + QString::number(start) + "\", \"" + QString::number(order.size()) + "\", \"" + QString::number(dist) + "\");");
@@ -84,6 +82,7 @@ void CustomTrip::tableViewUpdate() {
 void CustomTrip::on_pushButton_6_clicked() { // remove button
     tripModel->setQuery("DROP TABLE route;");
     tripModel->setQuery("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
+
     MainWindow* mainWindow = new MainWindow(this);
     mainWindow->show();
     hide();
@@ -112,7 +111,6 @@ void CustomTrip::on_pushButton_9_clicked() { // add button
     query.exec("SELECT restNum FROM restaurant WHERE restName =\"" + name + "\";");
     QString restNum = query.next() ? query.value(0).toString() : "0";
 
-    //std::cout << name.toStdString() << " " << restNum << std::endl;
     query.exec("DROP TABLE trip;");
     query.exec("CREATE TABLE trip (restName TEXT, restNum INTEGER);");
     query.exec("INSERT INTO trip (restName, restNum) SELECT restName, restNum FROM route;");
@@ -160,4 +158,3 @@ void CustomTrip::on_restComboBox_currentTextChanged(const QString &arg1) {
     updateTrip();
     tableViewUpdate();
 }
-
