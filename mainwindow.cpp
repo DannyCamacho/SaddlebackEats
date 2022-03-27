@@ -54,12 +54,12 @@ void MainWindow::on_pushButton_4_clicked() {
 
     QSqlQuery query("SELECT restNum FROM restaurant where restName =\"" + restName + "\";");
     if (query.next()) restNum = query.value(0).toString();
-    std::cout << restNum.toStdString();
 
     QString q = "INSERT INTO cart (restName, restNum, menuItem, menuPrice, quantity) VALUES (\"" + restName + "\", \"" + restNum + "\", \"" + menuItem + "\", \"" + menuPrice + "\", \"" + QString::number(quantity) + "\");";
     query.exec("SELECT quantity FROM cart where restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";");
     if (query.next()) {
         quantity += query.value(0).toInt();
+        if (quantity > 100) return;
         q = "UPDATE cart SET restName =\"" + restName + "\", menuItem =\"" + menuItem + "\", menuPrice =\"" + menuPrice + "\", quantity =\"" + QString::number(quantity) + "\" WHERE restName =\"" + restName + "\" AND menuItem =\"" + menuItem + "\";";
     }
     query.exec(q);

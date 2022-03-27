@@ -2,6 +2,7 @@
 #define CUSTOMTRIP_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include <vector>
 #include "database.h"
 
@@ -18,17 +19,26 @@ private slots:
     void calculateTrip(int start);
     void tableViewUpdate();
     void updateTrip();
-
     void on_pushButton_6_clicked();
+    void on_tripTableView_clicked(const QModelIndex &index);
+    void on_routeTableView_clicked(const QModelIndex &index);
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_restComboBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::CustomTrip *ui;
+    QSqlQueryModel* tripModel;
+    QSqlQueryModel* routeModel;
+    std::vector<int> order;
+    QString name;
     bool isAvailable[20];
     double d[20][20];
     int start;
-    std::vector<int> order;
-    QSqlQueryModel* tripModel;
-    QSqlQueryModel* routeModel;
+
 };
 
 #endif // CUSTOMTRIP_H
