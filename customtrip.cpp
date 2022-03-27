@@ -4,12 +4,12 @@
 
 CustomTrip::CustomTrip(QWidget *parent): ui(new Ui::CustomTrip) {
     ui->setupUi(this);
-    start = 0;
-    populateComboBox();
     tripModel = new QSqlQueryModel;
     routeModel = new QSqlQueryModel;
+    start = 0;
     initializeDistances();
-    routeTableViewUpdate();
+    updateTrip();
+    tableViewUpdate();
 };
 
 CustomTrip::~CustomTrip() {
@@ -18,24 +18,21 @@ CustomTrip::~CustomTrip() {
     delete routeModel;
 }
 
-void CustomTrip::populateComboBox() {
-    ui->restComboBox->addItem("Saddleback College");
-    QSqlQuery query("SELECT restName FROM restaurant");
-    while (query.next()) ui->restComboBox->addItem(query.value(0).toString());
-}
-
 void CustomTrip::initializeDistances() {
-    for (int i = 0; i < 20; ++i) isAvailable[i] = false;
-
     int i = 1;
+    ui->restComboBox->addItem("Saddleback College");
     QSqlQuery query("SELECT * FROM restaurant");
     while (query.next()) {
+        ui->restComboBox->addItem(query.value(0).toString());
         for (int k = 0; k < 20; ++ k) d[i][k] = query.value(k + 2).toDouble();
         d[0][i] = d[i][0];
         ++i;
     }
+}
 
-    query.exec("SELECT restNum FROM trip");
+void CustomTrip::updateTrip() {
+    for (int i = 0; i < 20; ++i) isAvailable[i] = false;
+    QSqlQuery query("SELECT restNum FROM trip");
     while (query.next()) isAvailable[query.value(0).toInt()] = true;
 
     calculateTrip(start);
@@ -67,9 +64,16 @@ void CustomTrip::calculateTrip(int start) {
     calculateTrip(idx);
 }
 
-void CustomTrip::routeTableViewUpdate() {
+void CustomTrip::tableViewUpdate() {
     routeModel->setQuery("SELECT restName, distToNext FROM route ORDER BY routeOrder");
     ui->routeTableView->setModel(routeModel);
+
+    tripModel->setQuery("DROP TABLE trip;");
+    tripModel->setQuery("CREATE TABLE trip(restName TEXT);");
+    tripModel->setQuery("INSERT INTO trip (restName) SELECT restName FROM restaurant;");
+    tripModel->setQuery("DELETE FROM trip WHERE EXISTS (SELECT restName FROM route WHERE trip.restName = route.restName);");
+    tripModel->setQuery("SELECT restName FROM trip");
+    ui->tripTableView->setModel(tripModel);
 
     QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT distToNext as TOTAL FROM route) X;");
     if (query.next()) ui->distLabel->setText(QString::number(query.value(0).toDouble(), 'g', 7));
