@@ -79,7 +79,7 @@ void MainWindow::on_cartButton_clicked() {
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked() { // initial list
+void MainWindow::on_pushButton_clicked() { // initial list trip
     QSqlQuery query1("DROP TABLE trip;");
     QSqlQuery query2("CREATE TABLE trip (restNum INTEGER);");
     //query2.exec("INSERT INTO trip (restNum) VALUES (0);");
@@ -91,3 +91,9 @@ void MainWindow::on_pushButton_clicked() { // initial list
     customTrip->show();
 }
 
+void MainWindow::on_pushButton_3_clicked() { // custom trip
+    hide();
+    delete ui;
+    customTrip = new CustomTrip(this);
+    customTrip->show();
+}

@@ -33,6 +33,8 @@ private slots:
     void restTableViewUpdate(int arg1);
     void on_pushButton_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     Login* login;

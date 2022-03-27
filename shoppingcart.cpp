@@ -90,4 +90,3 @@ void ShoppingCart::on_pushButton_3_clicked() {
     customTrip = new CustomTrip(this);
     customTrip->show();
 }
-
