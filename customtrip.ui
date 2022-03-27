@@ -788,7 +788,7 @@ color: rgb(159, 11, 25);</string>
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>111</width>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
@@ -803,13 +803,14 @@ color: rgb(159, 11, 25);</string>
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>91</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>11</pointsize>
+       <family>Bahnschrift</family>
+       <pointsize>12</pointsize>
        <weight>50</weight>
        <bold>false</bold>
       </font>
@@ -819,7 +820,7 @@ color: rgb(159, 11, 25);</string>
 color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Return</string>
+      <string>Main menu</string>
      </property>
      <property name="icon">
       <iconset resource="UIGraphics.qrc">
