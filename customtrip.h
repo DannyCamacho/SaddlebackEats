@@ -12,13 +12,13 @@ class CustomTrip : public QMainWindow {
 public:
     explicit CustomTrip(QWidget *parent = nullptr);
     ~CustomTrip();
-    void calculateTrip(int start);
-
 
 private slots:
     void initializeDistances();
-    void routeTableViewUpdate();
-    void populateComboBox();
+    void calculateTrip(int start);
+    void tableViewUpdate();
+    void updateTrip();
+
 private:
     Ui::CustomTrip *ui;
     bool isAvailable[20];
