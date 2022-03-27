@@ -32,7 +32,6 @@ private slots:
     void on_cartButton_clicked();
     void restTableViewUpdate(int arg1);
     void on_pushButton_clicked();
-
     void on_pushButton_3_clicked();
 
 private:

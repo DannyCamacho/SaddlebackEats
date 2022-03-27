@@ -27,7 +27,7 @@ void Database::init() {
     query.exec("CREATE TABLE menu (restName TEXT, menuItem TEXT, menuPrice INTEGER);");
     query.exec("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
     query.exec("CREATE TABLE trip (restName TEXT, restNum INTEGER, total INTEGER);");
-    query.exec("CREATE TABLE route (restName TEXT, routeOrder INTEGER, distToNext INTEGER);");
+    query.exec("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
 }
 
 void Database::populate(std::string fileName) {
