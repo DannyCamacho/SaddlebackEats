@@ -53,6 +53,7 @@ DISTFILES += \
     resources/SE_logo_mini.png \
     resources/addToCart-removebg-.png \
     resources/bubble-icon-removebg.png \
+    resources/dominos_ad.png \
     resources/menu_icon-removebg.png \
     resources/plusSign.png \
     resources/removeSign.png \
