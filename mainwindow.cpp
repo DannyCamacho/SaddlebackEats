@@ -38,7 +38,8 @@ void MainWindow::on_checkBox_stateChanged(int arg1) {
 
 void MainWindow::on_rest_tableView_clicked(const QModelIndex &index) {
     restName = index.siblingAtColumn(0).data().toString();
-    menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
+    menuModel->setQuery("SELECT menuItem, \"$\" || menuPrice as price FROM menu WHERE restName =\"" + restName + "\"");
+    //menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
     ui->menu_tableView->setModel(menuModel);
 }
 
@@ -82,7 +83,6 @@ void MainWindow::on_cartButton_clicked() {
 void MainWindow::on_pushButton_clicked() { // initial list trip
     QSqlQuery query1("DROP TABLE trip;");
     QSqlQuery query2("CREATE TABLE trip (restNum INTEGER);");
-    //query2.exec("INSERT INTO trip (restNum) VALUES (0);");
     query1.exec("SELECT restNum FROM restaurant ORDER BY restNum LIMIT 10;");
     while(query1.next()) query2.exec("INSERT INTO trip (restNum) VALUES (\"" + query1.value(0).toString() + "\");");
     hide();
