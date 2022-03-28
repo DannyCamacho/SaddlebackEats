@@ -353,7 +353,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(159, 11, 25);</string>
      </property>
      <property name="text">
-      <string>CHECKOUT</string>
+      <string>Proceed to Route</string>
      </property>
      <property name="autoDefault">
       <bool>true</bool>
@@ -382,6 +382,7 @@ color: rgb(159, 11, 25);</string>
      </property>
      <property name="font">
       <font>
+       <family>Bahnschrift</family>
        <pointsize>16</pointsize>
       </font>
      </property>
@@ -409,6 +410,7 @@ color: rgb(159, 11, 25);</string>
      </property>
      <property name="font">
       <font>
+       <family>Bahnschrift</family>
        <pointsize>16</pointsize>
        <weight>50</weight>
        <bold>false</bold>
@@ -555,17 +557,6 @@ color: rgb(0, 0, 0);</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>889</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="UIGraphics.qrc"/>

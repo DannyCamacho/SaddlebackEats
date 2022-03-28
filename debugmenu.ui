@@ -82,6 +82,7 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
+       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -155,6 +156,7 @@ selection-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
+       <family>Bahnschrift</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -236,7 +238,8 @@ selection-color: rgb(0, 0, 0);
      </property>
      <property name="font">
       <font>
-       <pointsize>14</pointsize>
+       <family>Bahnschrift</family>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -261,7 +264,8 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>14</pointsize>
+       <family>Bahnschrift</family>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -315,7 +319,8 @@ color: rgb(0, 0, 0);</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <family>Bahnschrift</family>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -343,6 +348,7 @@ selection-color: rgb(0, 0, 0);</string>
         </property>
         <property name="font">
          <font>
+          <family>Bahnschrift</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -368,7 +374,8 @@ selection-background-color: rgb(225, 225, 225);
         </property>
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <family>Bahnschrift</family>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -396,6 +403,7 @@ selection-color: rgb(0, 0, 0);</string>
         </property>
         <property name="font">
          <font>
+          <family>Bahnschrift</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -422,6 +430,7 @@ selection-background-color: rgb(225, 225, 225);
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -457,6 +466,7 @@ color: rgb(159, 11, 25);</string>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -486,6 +496,7 @@ color: rgb(159, 11, 25);</string>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -508,7 +519,7 @@ color: rgb(159, 11, 25);</string>
      <x>0</x>
      <y>0</y>
      <width>889</width>
-     <height>24</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -534,19 +545,27 @@ background-color: rgb(255, 255, 255);</string>
       <normaloff>:/rec/resources/menu_icon-removebg.png</normaloff>:/rec/resources/menu_icon-removebg.png</iconset>
     </property>
     <addaction name="importFile"/>
-    <addaction name="actionSave_as"/>
     <addaction name="separator"/>
     <addaction name="actionLogout"/>
+    <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+  </widget>
   <action name="importFile">
    <property name="text">
     <string>Import...</string>
    </property>
    <property name="font">
     <font>
+     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -577,6 +596,18 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
      <pointsize>14</pointsize>
     </font>
    </property>

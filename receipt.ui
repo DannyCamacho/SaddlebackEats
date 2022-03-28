@@ -60,6 +60,12 @@
        <height>481</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_2">
@@ -86,6 +92,12 @@
        <height>481</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -96,6 +108,12 @@
       <width>231</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>  Purchases</string>
@@ -110,6 +128,12 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>  Directions</string>
     </property>
@@ -122,6 +146,12 @@
       <width>161</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>  Total Mileage: </string>
@@ -138,6 +168,12 @@
       <width>51</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>0</string>

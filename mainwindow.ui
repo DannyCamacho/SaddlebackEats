@@ -1141,10 +1141,10 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QMenu" name="menuMenu">
     <property name="geometry">
      <rect>
-      <x>2031</x>
-      <y>117</y>
+      <x>1744</x>
+      <y>115</y>
       <width>168</width>
-      <height>157</height>
+      <height>128</height>
      </rect>
     </property>
     <property name="font">
@@ -1163,10 +1163,10 @@ background-color: rgb(255, 255, 255);</string>
      <iconset resource="UIGraphics.qrc">
       <normaloff>:/rec/resources/menu_icon-removebg.png</normaloff>:/rec/resources/menu_icon-removebg.png</iconset>
     </property>
-    <addaction name="actionRestaurants"/>
-    <addaction name="actionCheckout"/>
     <addaction name="separator"/>
     <addaction name="actionLogin"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
@@ -1197,6 +1197,17 @@ background-color: rgb(255, 255, 255);</string>
   <action name="actionLogin">
    <property name="text">
     <string>Login</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
    </property>
    <property name="font">
     <font>
