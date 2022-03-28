@@ -37,9 +37,9 @@ void MainWindow::on_checkBox_stateChanged(int arg1) {
 }
 
 void MainWindow::on_rest_tableView_clicked(const QModelIndex &index) {
+    menuItem = "";
     restName = index.siblingAtColumn(0).data().toString();
     menuModel->setQuery("SELECT menuItem, \"$\" || menuPrice as price FROM menu WHERE restName =\"" + restName + "\"");
-    //menuModel->setQuery("SELECT menuItem, menuPrice FROM menu WHERE restName =\"" + restName + "\"");
     ui->menu_tableView->setModel(menuModel);
 }
 
@@ -49,7 +49,12 @@ void MainWindow::on_actionLogin_triggered() {
 }
 
 void MainWindow::on_pushButton_4_clicked() {
-    if (menuItem == "" || ui->spinBox->text().toInt() == 0) return;
+    if (menuItem == "" || ui->spinBox->text().toInt() == 0) {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Missing Menu Item", "Menu item must be selected");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
     int quantity = ui->spinBox->text().toInt();
     QString restNum = "";
 
