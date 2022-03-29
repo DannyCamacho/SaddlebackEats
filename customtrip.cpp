@@ -1,6 +1,7 @@
 #include "customtrip.h"
 #include "ui_customtrip.h"
 #include "mainwindow.h"
+#include "shoppingcart.h"
 
 CustomTrip::CustomTrip(QWidget *parent): ui(new Ui::CustomTrip) {
     ui->setupUi(this);
@@ -75,7 +76,7 @@ void CustomTrip::tableViewUpdate() {
     ui->tripTableView->setModel(tripModel);
 
     QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT distToNext as TOTAL FROM route) X;");
-    if (query.next()) ui->distLabel->setText(QString::number(query.value(0).toDouble(), 'g', 7));
+    if (query.next()) ui->distLabel->setText(QString::number(query.value(0).toDouble(), 'f', 2));
     if (ui->distLabel->text() == "") ui->distLabel->setText("0.00");
 }
 
@@ -83,6 +84,8 @@ void CustomTrip::on_pushButton_6_clicked() { // remove button
     tripModel->setQuery("DROP TABLE route;");
     tripModel->setQuery("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
 
+//    ShoppingCart* shoppingCart = new ShoppingCart(this);
+//    shoppingCart->show();
     MainWindow* mainWindow = new MainWindow(this);
     mainWindow->show();
     hide();
@@ -167,18 +170,25 @@ void CustomTrip::on_pushButton_3_clicked() {
 }
 
 void CustomTrip::on_pushButton_2_clicked() {
-    ui->pushButton_2->setText("Processing...");
-    QTime dieTime= QTime::currentTime().addSecs(2);
-    while (QTime::currentTime() < dieTime)
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+    QSqlQuery query("SELECT * FROM cart");
+    if (query.next()) {
+        ui->pushButton_2->setText("Processing...");
+        QTime dieTime= QTime::currentTime().addSecs(2);
+        while (QTime::currentTime() < dieTime)
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 
-   QMessageBox messageBox;
-   messageBox.information(0,"Order Confirmation","Your order has been successfully placed!");
-   messageBox.setFixedSize(500,200);
+       QMessageBox messageBox;
+       messageBox.information(0,"Order Confirmation","Your order has been successfully placed!");
+       messageBox.setFixedSize(500,200);
 
-   QSqlQuery query("DROP TABLE cart;");
-   query.exec("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
+       query.exec("DROP TABLE cart;");
+       query.exec("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
 
-   ui->pushButton_2->setText("Place Order");
+       ui->pushButton_2->setText("Place Order");
+    } else {
+        QMessageBox messageBox;
+        messageBox.critical(0,"Empty Cart","Unable to place order!");
+        messageBox.setFixedSize(500,200);
+        return;
+    }
 }
-

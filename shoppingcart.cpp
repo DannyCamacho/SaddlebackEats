@@ -23,13 +23,13 @@ void ShoppingCart::cartTableViewUpdate() {
 }
 
 void ShoppingCart::totTableViewUpdate() {
-    totModel->setQuery("SELECT restName, '$' || SUM(TRIM(menuPrice, '$') * quantity) FROM cart GROUP BY restName");
+    totModel->setQuery("SELECT restName, '$' || SUM (TRIM(menuPrice, '$') * quantity) FROM cart GROUP BY restName");
     ui->totTableView->setModel(totModel);
 }
 
 void ShoppingCart::calculateTotal() {
     QSqlQuery query("SELECT SUM(X.TOTAL) FROM (SELECT TRIM(menuPrice, '$') * quantity as TOTAL FROM cart) X;");
-    if (query.next()) ui->totalAmount->setText(QString::number(query.value(0).toDouble(), 'g', 7));
+    if (query.next()) ui->totalAmount->setText(QString::number(query.value(0).toDouble(), 'f', 2));
         if (ui->totalAmount->text() == "") ui->totalAmount->setText("0.00");
 }
 
@@ -37,7 +37,7 @@ void ShoppingCart::on_emptyButton_clicked() {
     QSqlQuery query("DROP TABLE cart;");
     menuItem = restName = "";
     ui->totalAmount->setText("0.00");
-    QSqlQuery cart("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
+    query.exec("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
     cartTableViewUpdate();
 }
 
