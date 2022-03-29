@@ -29,6 +29,9 @@ void CustomTrip::initializeDistances() {
         d[0][i] = d[i][0];
         ++i;
     }
+    query.exec("SELECT SUM(X.TOTAL) FROM (SELECT quantity as TOTAL FROM cart) X;");
+    if (query.next()) ui->cartQuantity->setText(query.value(0).toString());
+    if (ui->cartQuantity->text() == "") ui->cartQuantity->setText("0");
 }
 
 void CustomTrip::updateTrip() {
@@ -84,8 +87,6 @@ void CustomTrip::on_pushButton_6_clicked() { // remove button
     tripModel->setQuery("DROP TABLE route;");
     tripModel->setQuery("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
 
-//    ShoppingCart* shoppingCart = new ShoppingCart(this);
-//    shoppingCart->show();
     MainWindow* mainWindow = new MainWindow(this);
     mainWindow->show();
     hide();
@@ -185,10 +186,25 @@ void CustomTrip::on_pushButton_2_clicked() {
        query.exec("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
 
        ui->pushButton_2->setText("Place Order");
+
+       query.exec("SELECT SUM(X.TOTAL) FROM (SELECT quantity as TOTAL FROM cart) X;");
+       if (query.next()) ui->cartQuantity->setText(query.value(0).toString());
+       if (ui->cartQuantity->text() == "") ui->cartQuantity->setText("0");
+
     } else {
         QMessageBox messageBox;
         messageBox.critical(0,"Empty Cart","Unable to place order!");
         messageBox.setFixedSize(500,200);
         return;
     }
+}
+
+void CustomTrip::on_cartButton_clicked() {
+    tripModel->setQuery("DROP TABLE route;");
+    tripModel->setQuery("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
+
+    ShoppingCart* shoppingCart = new ShoppingCart(this);
+    shoppingCart->show();
+    hide();
+    delete ui;
 }

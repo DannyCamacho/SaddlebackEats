@@ -29,6 +29,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_cartButton_clicked();
+
 private:
     Ui::CustomTrip *ui;
     QSqlQueryModel* tripModel;
