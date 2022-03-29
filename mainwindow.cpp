@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     restModel = new QSqlQueryModel;
     menuModel = new QSqlQueryModel;
     fileName = "../SaddlebackEats/fastfood.txt";
-    database.populate(fileName);
+    database.populate(fileName); // comment out when using persistent database.
     on_checkBox_stateChanged(0);
 }
 

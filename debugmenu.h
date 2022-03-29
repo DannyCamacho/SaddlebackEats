@@ -29,7 +29,6 @@ private slots:
     void on_actionLogout_triggered();
     void restTableViewUpdate();
     void menuTableViewUpdate();
-
     void on_actionQuit_triggered();
 
 private:

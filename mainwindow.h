@@ -33,7 +33,6 @@ private slots:
     void restTableViewUpdate(int arg1);
     void on_pushButton_clicked();
     void on_pushButton_3_clicked();
-
     void on_actionQuit_triggered();
 
 private:
