@@ -165,3 +165,17 @@ void CustomTrip::on_pushButton_3_clicked() {
     ui->restComboBox->setCurrentText("Domino's Pizza");
     on_restComboBox_currentTextChanged("Domino's Pizza");
 }
+
+void CustomTrip::on_pushButton_2_clicked() {
+    ui->pushButton_2->setText("Processing...");
+    QTime dieTime= QTime::currentTime().addSecs(2);
+    while (QTime::currentTime() < dieTime)
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+
+   QMessageBox messageBox;
+   messageBox.information(0,"Order Confirmation","Your order has been successfully placed!");
+   messageBox.setFixedSize(500,200);
+
+    ui->pushButton_2->setText("Place Order");
+}
+
