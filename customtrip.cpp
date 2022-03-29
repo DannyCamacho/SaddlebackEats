@@ -176,6 +176,9 @@ void CustomTrip::on_pushButton_2_clicked() {
    messageBox.information(0,"Order Confirmation","Your order has been successfully placed!");
    messageBox.setFixedSize(500,200);
 
-    ui->pushButton_2->setText("Place Order");
+   QSqlQuery query("DROP TABLE cart;");
+   query.exec("CREATE TABLE cart (restName TEXT, restNum INTEGER, menuItem TEXT, menuPrice INTEGER, quantity INTEGER);");
+
+   ui->pushButton_2->setText("Place Order");
 }
 
