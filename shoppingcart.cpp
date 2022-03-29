@@ -23,7 +23,7 @@ void ShoppingCart::cartTableViewUpdate() {
 }
 
 void ShoppingCart::totTableViewUpdate() {
-    totModel->setQuery("SELECT restName, '$' || SUM(TRIM(menuPrice, '$') * quantity) FROM cart GROUP BY restName");
+    totModel->setQuery("SELECT restName, '$' || printf(\"%.2f\", SUM(TRIM(menuPrice, '$') * quantity)) FROM cart GROUP BY restName");
     ui->totTableView->setModel(totModel);
 }
 
