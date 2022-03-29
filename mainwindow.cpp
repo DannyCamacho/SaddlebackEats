@@ -108,8 +108,7 @@ void MainWindow::on_pushButton_3_clicked() { // custom trip
     customTrip->show();
 }
 
-void MainWindow::on_actionQuit_triggered()
-{
+void MainWindow::on_actionQuit_triggered() {
      QApplication::quit();
 }
 
