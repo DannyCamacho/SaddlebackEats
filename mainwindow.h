@@ -34,6 +34,8 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_3_clicked();
 
+    void on_actionQuit_triggered();
+
 private:
     Ui::MainWindow *ui;
     Login* login;

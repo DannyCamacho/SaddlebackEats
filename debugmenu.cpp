@@ -163,3 +163,8 @@ void DebugMenu::on_actionLogout_triggered() {
     hide();
     delete ui;
 }
+
+void DebugMenu::on_actionQuit_triggered()
+{
+     QApplication::quit();
+}

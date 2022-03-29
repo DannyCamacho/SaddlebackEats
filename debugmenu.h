@@ -30,6 +30,8 @@ private slots:
     void restTableViewUpdate();
     void menuTableViewUpdate();
 
+    void on_actionQuit_triggered();
+
 private:
     Ui::debugMenu *ui;
     QSqlQueryModel* restModel;

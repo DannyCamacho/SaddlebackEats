@@ -49,7 +49,7 @@ void MainWindow::on_actionLogin_triggered() {
 }
 
 void MainWindow::on_pushButton_4_clicked() {
-    if (menuItem == "" || ui->spinBox->text().toInt() == 0) {
+    if (menuItem == "") {
         QMessageBox messageBox;
         messageBox.critical(0,"Missing Menu Item", "Menu item must be selected");
         messageBox.setFixedSize(500,200);
@@ -107,3 +107,9 @@ void MainWindow::on_pushButton_3_clicked() { // custom trip
     customTrip = new CustomTrip(this);
     customTrip->show();
 }
+
+void MainWindow::on_actionQuit_triggered()
+{
+     QApplication::quit();
+}
+
