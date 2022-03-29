@@ -75,6 +75,7 @@
        <widget class="QPushButton" name="emptyButton">
         <property name="font">
          <font>
+          <family>Segoe UI Semibold</family>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -98,6 +99,7 @@ color: rgb(159, 11, 25);</string>
        <widget class="QPushButton" name="removeButton">
         <property name="font">
          <font>
+          <family>Segoe UI Semibold</family>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -127,6 +129,7 @@ color: rgb(159, 11, 25);</string>
         </property>
         <property name="font">
          <font>
+          <family>Segoe UI Semibold</family>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -150,6 +153,7 @@ selection-background-color: rgb(225, 225, 225);
        <widget class="QPushButton" name="updateButton">
         <property name="font">
          <font>
+          <family>Segoe UI Semibold</family>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -343,6 +347,7 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
+       <family>Segoe UI Semibold</family>
        <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>

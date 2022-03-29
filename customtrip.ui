@@ -26,7 +26,7 @@ color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>350</y>
+      <y>370</y>
       <width>241</width>
       <height>41</height>
      </rect>
@@ -350,9 +350,9 @@ selection-color: rgb(0, 0, 0);
         <colorrole role="PlaceholderText">
          <brush brushstyle="NoBrush">
           <color alpha="128">
-           <red>208</red>
-           <green>208</green>
-           <blue>208</blue>
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
           </color>
          </brush>
         </colorrole>
@@ -534,9 +534,9 @@ selection-color: rgb(0, 0, 0);
         <colorrole role="PlaceholderText">
          <brush brushstyle="NoBrush">
           <color alpha="128">
-           <red>208</red>
-           <green>208</green>
-           <blue>208</blue>
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
           </color>
          </brush>
         </colorrole>
@@ -732,9 +732,9 @@ color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>400</y>
+      <y>430</y>
       <width>241</width>
-      <height>101</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -754,26 +754,13 @@ color: rgb(0, 0, 0);</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(225, 225, 225);
-color: rgb(159, 11, 25);</string>
-       </property>
-       <property name="text">
-        <string>Print</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="font">
         <font>
+         <family>Segoe UI Semibold</family>
          <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
@@ -1094,58 +1081,6 @@ color: rgb(0, 0, 0);</string>
     <property name="wordWrap">
      <bool>true</bool>
     </property>
-   </widget>
-   <widget class="QFrame" name="frame_11">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>0</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: none;</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <widget class="QPushButton" name="cartButton">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>121</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Bahnschrift</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(225, 225, 225);
-color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string> Shopping cart</string>
-     </property>
-     <property name="icon">
-      <iconset resource="UIGraphics.qrc">
-       <normaloff>:/rec/resources/shopping-cart-icon-SE-color-removebg.png</normaloff>:/rec/resources/shopping-cart-icon-SE-color-removebg.png</iconset>
-     </property>
-     <property name="autoDefault">
-      <bool>true</bool>
-     </property>
-     <property name="default">
-      <bool>true</bool>
-     </property>
-    </widget>
    </widget>
   </widget>
  </widget>
