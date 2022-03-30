@@ -16,7 +16,7 @@ bool Database::isInitialized = false;
 Database::Database() {
     if (!isInitialized) {
         connect();
-        init();
+        //init();
         isInitialized = true;
     }
 }
@@ -32,8 +32,8 @@ void Database::connect() {
 
     if(QSqlDatabase::isDriverAvailable(DRIVER)) {
         QSqlDatabase db = QSqlDatabase::addDatabase(DRIVER);
-        db.setDatabaseName(":memory:"); //initializes database on each run.
-        //db.setDatabaseName("RestaurantDB"); // Uses RestaurantDB database
+        //db.setDatabaseName(":memory:"); //initializes database on each run.
+        db.setDatabaseName("RestaurantDB"); // Uses RestaurantDB database
 
         if(!db.open()) qWarning() << "MainWindow::DatabaseConnect - ERROR: " << db.lastError().text();
     } else qWarning() << "MainWindow::DatabaseConnect - ERROR: no driver " << DRIVER << " available";

@@ -48,6 +48,8 @@ DISTFILES += \
     CS1D Spring 2022 New Fast Food Project.txt \
     README.md \
     fastfood.txt \
+    resources/CS1D Spring 2022 New Fast Food Project.txt \
+    resources/RestaurantDB \
     resources/SE_1-removebg.png \
     resources/SE_logo.png \
     resources/SE_logo_mini.png \
