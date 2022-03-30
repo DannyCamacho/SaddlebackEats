@@ -177,7 +177,7 @@ void CustomTrip::on_pushButton_9_clicked() {
     tableViewUpdate();
 }
 
-/* ==== CustomTrip::on_pushButton_9_clicked =========================
+/* ==== CustomTrip::on_pushButton_10_clicked ========================
     Remove Button: Removes the selected restaurant from the route
     tableview and adds it to the trip tableview, if a route tableview
     entry is not selected, a warning message is displayed to the user.
@@ -205,7 +205,7 @@ void CustomTrip::on_pushButton_10_clicked() {
     tableViewUpdate();
 }
 
-/* ==== CustomTrip::on_pushButton_9_clicked =========================
+/* ==== CustomTrip::on_restComboBox_currentTextChanged==============
     ComboBox Item Selected: Updates the starting location based off
     the selected comboBox item selected. The trip is then recalculated
     and displayed to the user.
