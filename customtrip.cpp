@@ -3,6 +3,12 @@
 #include "mainwindow.h"
 #include "shoppingcart.h"
 
+/* ==== CustomTrip::Constructor =====================================
+    Constructor used to initialize SQLQueryModels tripModel and
+    routeModel, set the starting location to 0 (Saddleback College),
+    initialize the location distances, run the recursive method, and
+    update both tablesviews.
+================================================================== */
 CustomTrip::CustomTrip(QWidget *parent): ui(new Ui::CustomTrip) {
     ui->setupUi(this);
     tripModel = new QSqlQueryModel;
@@ -13,12 +19,21 @@ CustomTrip::CustomTrip(QWidget *parent): ui(new Ui::CustomTrip) {
     tableViewUpdate();
 };
 
+/* ==== CustomTrip::Destructor ======================================
+    Destructor used to delete SQLQueryModels tripModel and
+    routeModel and the CustomTrip UI.
+================================================================== */
 CustomTrip::~CustomTrip() {
     delete ui;
     delete tripModel;
     delete routeModel;
 }
 
+/* ==== CustomTrip::initializeDistances =============================
+    Method used to initialize the comboBox with all restaurant entries,
+    update the 2d distances array used in the recursive function, and
+    update the cart quantity amount.
+================================================================== */
 void CustomTrip::initializeDistances() {
     int i = 1;
     ui->restComboBox->addItem("Saddleback College");
@@ -34,6 +49,10 @@ void CustomTrip::initializeDistances() {
     if (ui->cartQuantity->text() == "") ui->cartQuantity->setText("0");
 }
 
+/* ==== CustomTrip::initializeDistances =============================
+    Method used to update the restaurants included in the custom trip,
+    the recursive method (calculateTrip) is then called.
+================================================================== */
 void CustomTrip::updateTrip() {
     for (int i = 0; i < 20; ++i) isAvailable[i] = false;
     QSqlQuery query("SELECT restNum FROM trip");
@@ -43,6 +62,10 @@ void CustomTrip::updateTrip() {
     calculateTrip(start);
 }
 
+/* ==== CustomTrip::calculateTrip ===================================
+    Recursive method used to find the closest location from the
+    current location, the base case being when start is set to -1.
+================================================================== */
 void CustomTrip::calculateTrip(int start) {
     if (start == -1) return;
 
@@ -67,6 +90,12 @@ void CustomTrip::calculateTrip(int start) {
     calculateTrip(idx);
 }
 
+/* ==== CustomTrip::tableViewUpdate =================================
+    Method used to update the two tables, updates the location
+    selection pool based off restaurants currently found within the
+    route. the total distance is determined by summing all distances
+    found within the route tableview.
+================================================================== */
 void CustomTrip::tableViewUpdate() {
     routeModel->setQuery("SELECT restName, distToNext FROM route ORDER BY routeOrder");
     ui->routeTableView->setModel(routeModel);
@@ -83,27 +112,47 @@ void CustomTrip::tableViewUpdate() {
     if (ui->distLabel->text() == "") ui->distLabel->setText("0.00");
 }
 
-void CustomTrip::on_pushButton_6_clicked() { // remove button
+/* ==== CustomTrip::on_pushButton_6_clicked =========================
+    Return to Main Menu Button: Clears exising route table and hides
+    and deletes CustomTrip UI and creates and shows a new MainWindow UI.
+================================================================== */
+void CustomTrip::on_pushButton_6_clicked() {
     tripModel->setQuery("DROP TABLE route;");
     tripModel->setQuery("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
 
-    MainWindow* mainWindow = new MainWindow(this);
-    mainWindow->show();
     hide();
     delete ui;
+    MainWindow* mainWindow = new MainWindow(this);
+    mainWindow->show();
 }
 
+/* ==== CustomTrip::on_tripTableView_clicked ========================
+    Updates the name member when a restaurant is selected. index is
+    the specific row selected of the tableview. Clears the route
+    tableview selection when a trip tableview item is selected.
+================================================================== */
 void CustomTrip::on_tripTableView_clicked(const QModelIndex &index){
     ui->routeTableView->clearSelection();
     name = index.siblingAtColumn(0).data().toString();
 }
 
+/* ==== CustomTrip::on_routeTableView_clicked =======================
+    Updates the name member when a restaurant is selected. index is
+    the specific row selected of the tableview. Clears the trip
+    tableview selection when a route tableview item is selected.
+================================================================== */
 void CustomTrip::on_routeTableView_clicked(const QModelIndex &index){
     ui->tripTableView->clearSelection();
     name = index.siblingAtColumn(0).data().toString();
 }
 
-void CustomTrip::on_pushButton_9_clicked() { // add button
+/* ==== CustomTrip::on_pushButton_9_clicked =========================
+    Add Button: Adds the selected restaurant from the trip tableview
+    to the route tableview, if a trip tableview entry is not selected,
+    a warning message is displayed to the user. The new efficient trip
+    is then calculated and displayed.
+================================================================== */
+void CustomTrip::on_pushButton_9_clicked() {
     QSqlQuery query("SELECT restName FROM trip WHERE restName =\"" + name + "\";");
 
     if (!query.next()) {
@@ -128,7 +177,13 @@ void CustomTrip::on_pushButton_9_clicked() { // add button
     tableViewUpdate();
 }
 
-void CustomTrip::on_pushButton_10_clicked() { // remove button
+/* ==== CustomTrip::on_pushButton_9_clicked =========================
+    Remove Button: Removes the selected restaurant from the route
+    tableview and adds it to the trip tableview, if a route tableview
+    entry is not selected, a warning message is displayed to the user.
+    The new efficient trip is then calculated and displayed.
+================================================================== */
+void CustomTrip::on_pushButton_10_clicked() {
     QSqlQuery query("SELECT restName FROM route WHERE restName =\"" + name + "\";");
 
     if (!query.next()) {
@@ -150,6 +205,11 @@ void CustomTrip::on_pushButton_10_clicked() { // remove button
     tableViewUpdate();
 }
 
+/* ==== CustomTrip::on_pushButton_9_clicked =========================
+    ComboBox Item Selected: Updates the starting location based off
+    the selected comboBox item selected. The trip is then recalculated
+    and displayed to the user.
+================================================================== */
 void CustomTrip::on_restComboBox_currentTextChanged(const QString &arg1) {
     QSqlQuery query("SELECT restNum FROM restaurant WHERE restName =\"" + arg1 + "\";");
     start = query.next() ? query.value(0).toInt() : 0;
@@ -165,11 +225,23 @@ void CustomTrip::on_restComboBox_currentTextChanged(const QString &arg1) {
     tableViewUpdate();
 }
 
+/* ==== CustomTrip::on_pushButton_3_clicked =========================
+    Domino's Pizza Button: Updates the starting location to Domino's
+    and updates the comboBox item to display Domino's Pizza. The new
+    efficient trip is then calculated and displayed.
+================================================================== */
 void CustomTrip::on_pushButton_3_clicked() {
     ui->restComboBox->setCurrentText("Domino's Pizza");
     on_restComboBox_currentTextChanged("Domino's Pizza");
 }
 
+/* ==== CustomTrip::on_pushButton_2_clicked =========================
+    Place Order Button: Changes button text to Processing... and waits
+    for 2 seconds to simulate processing a payment. The shopping cart
+    table is then reset and a confirmation popup message is displayed
+    to the user. If the cart is currently empty, a warning popup is
+    displayed to the user.
+================================================================== */
 void CustomTrip::on_pushButton_2_clicked() {
     QSqlQuery query("SELECT * FROM cart");
     if (query.next()) {
@@ -199,12 +271,16 @@ void CustomTrip::on_pushButton_2_clicked() {
     }
 }
 
+/* ==== CustomTrip::on_cartButton_clicked ===========================
+    Shopping Cart Button: Clears exising route table and hides and
+    deletes CustomTrip UI and creates and shows a new ShoppingCart UI.
+================================================================== */
 void CustomTrip::on_cartButton_clicked() {
     tripModel->setQuery("DROP TABLE route;");
     tripModel->setQuery("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
 
-    ShoppingCart* shoppingCart = new ShoppingCart(this);
-    shoppingCart->show();
     hide();
     delete ui;
+    ShoppingCart* shoppingCart = new ShoppingCart(this);
+    shoppingCart->show();
 }

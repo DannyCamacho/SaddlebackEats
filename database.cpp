@@ -1,7 +1,18 @@
 #include "database.h"
 
+/* ==== Database::isInitialized =====================================
+    Private static member used to allow only allow one connect/init
+    method call across all Database instances. Initialized to false
+    to allow the first constructor to execute the connect and init
+    methods.
+================================================================== */
 bool Database::isInitialized = false;
 
+/* ==== Database::Constructor =======================================
+    Constructor used to connect and initialize the SQLite databases.
+    Singleton model used to initialize the database, after first
+    initialization the database does not reinitialize instances.
+================================================================== */
 Database::Database() {
     if (!isInitialized) {
         connect();
@@ -10,6 +21,12 @@ Database::Database() {
     }
 }
 
+/* ==== Database::connect ===========================================
+    Method used to connect connect to the SQLite database. Comment
+    out one of the two setDatabaseNames depending on program usage.
+    Checks for connection issues after attempting to establish the
+    connection.
+================================================================== */
 void Database::connect() {
     const QString DRIVER("QSQLITE");
 
@@ -22,6 +39,11 @@ void Database::connect() {
     } else qWarning() << "MainWindow::DatabaseConnect - ERROR: no driver " << DRIVER << " available";
 }
 
+/* ==== Database::init ==============================================
+    Method used to initialize the tables used within the SQLite
+    database. these tables are restaurant, menu, cart, trip, and
+    route.
+================================================================== */
 void Database::init() {
     QSqlQuery query("CREATE TABLE restaurant (restName TEXT, restNum INTEGER, d0 INTEGER, d1 INTEGER, d2 INTEGER, d3 INTEGER, d4 INTEGER, d5 INTEGER, d6 INTEGER, d7 INTEGER, d8 INTEGER, d9 INTEGER, d10 INTEGER, d11 INTEGER, d12 INTEGER, d13 INTEGER, d14 INTEGER, d15 INTEGER, d16 INTEGER, d17 INTEGER, d18 INTEGER, d19 INTEGER, d20 INTEGER, menuSize TEXT);");
     if(!query.isActive()) qWarning() << "MainWindow::DatabaseInit - ERROR: " << query.lastError().text();
@@ -31,6 +53,11 @@ void Database::init() {
     query.exec("CREATE TABLE route (restName TEXT, restNum INTEGER, routeOrder INTEGER, distToNext INTEGER);");
 }
 
+/* ==== Database::populate ===========================================
+    Method used to populate the database from file, checks for issues
+    within the database and duplicate entries between the existing
+    table and the current restaurant selected within file.
+================================================================== */
 void Database::populate(std::string fileName) {
     QString q;
     QSqlQuery query;
@@ -74,7 +101,7 @@ void Database::populate(std::string fileName) {
         q = QString::fromStdString(s);
         if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
 
-// FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
+//        FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
 //        q = "SELECT * FROM restaurant WHERE restName =\"" + QString::fromStdString(restName) + "\"";
 //        query.exec(q);
 //        query.next();
@@ -85,7 +112,7 @@ void Database::populate(std::string fileName) {
             q = QString::fromStdString(s);
             if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
 
-// FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
+//            FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
 //            q = "SELECT * FROM menu WHERE menuItem =\"" + QString::fromStdString(menuItem[i]) + "\" AND restNum =\"" + QString::fromStdString(restNum)+ "\"";
 //            query.exec(q);
 //            query.next();
@@ -94,6 +121,11 @@ void Database::populate(std::string fileName) {
     } infile.close();
 }
 
+/* ==== Database::import ============================================
+    Method used to import new entries from file, checks for issues
+    within the database and duplicate entries between the existing
+    table and the current restaurant selected within file.
+================================================================== */
 void Database::import(std::string fileName) {
     QString q;
     QSqlQuery query;
@@ -143,7 +175,7 @@ void Database::import(std::string fileName) {
             if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
         }
 
-// FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
+//        FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
 //        q = "SELECT * FROM restaurant WHERE restName =\"" + QString::fromStdString(restName) + "\"";
 //        query.exec(q);
 //        query.next();
@@ -154,16 +186,16 @@ void Database::import(std::string fileName) {
             q = QString::fromStdString(s);
             if (!query.exec(q)) qWarning() << "MainWindow::DatabasePopulate - ERROR: " << query.lastError().text();
 
-// FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
+//            FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
 //            q = "SELECT * FROM menu WHERE menuItem =\"" + QString::fromStdString(menuItem[i]) + "\" AND restNum =\"" + QString::fromStdString(restNum)+ "\"";
 //            query.exec(q);
 //            query.next();
 //            std::cout << query.value(1).toString().toStdString() << " " << query.value(2).toString().toStdString() << " " << query.value(3).toString().toStdString() << " " << query.value(4).toString().toStdString() << std::endl;
         }
     } infile.close();
-// FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
-//    q = "SELECT * FROM restaurant ORDER BY restNum";
-//    query.exec(q);
-//    while (query.next())
+//        FOLLOWING CODE USED FOR SQLITE TESTING PURPOSES:
+//        q = "SELECT * FROM restaurant ORDER BY restNum";
+//        query.exec(q);
+//        while (query.next())
 //        std::cout << query.value(1).toString().toStdString() << " " << query.value(2).toString().toStdString() << " " << query.value(3).toString().toStdString() << " " << query.value(4).toString().toStdString() << " " << query.value(5).toString().toStdString() << " " << query.value(6).toString().toStdString() << " " << query.value(7).toString().toStdString() << " " << query.value(8).toString().toStdString() << " " << query.value(9).toString().toStdString() << " " << query.value(10).toString().toStdString() << " " << query.value(11).toString().toStdString() << " " << query.value(12).toString().toStdString() << " " << query.value(13).toString().toStdString() << " " << query.value(14).toString().toStdString() << " " << query.value(15).toString().toStdString() << std::endl;
 }
